@@ -30,6 +30,14 @@ set laststatus=2
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
 
+
+set noeol
+set binary
+
+" Set leader to <space> as it's the only key you have two
+" dedicated digits for!
+let mapleader = " "
+
 " NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
@@ -103,7 +111,7 @@ set modeline
 set modelines=10
 
 " Default color scheme
-color desert
+" color desert
 
 "Directories for swp files
 set backupdir=~/.vim/backup
@@ -113,3 +121,65 @@ set directory=~/.vim/backup
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+" Movement
+map j gj
+map k gk
+
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source  $MYVIMRC
+endif
+
+" Open .vimrc in a new tab
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
+
+"Ack shortcut...
+map <leader>a :Ack<space>
+
+
+" Insert HashRockets... :)
+imap <C-l> <Space>=><Space>
+
+" open tabs with command-<tab number>
+map <D-1> :tabn 1<CR>
+map <D-2> :tabn 2<CR>
+map <D-3> :tabn 3<CR>
+map <D-4> :tabn 4<CR>
+map <D-5> :tabn 5<CR>
+map <D-6> :tabn 6<CR>
+map <D-7> :tabn 7<CR>
+map <D-8> :tabn 8<CR>
+map <D-9> :tabn 9<CR>
+
+" bind command-] to indent right
+nmap <D-]> >>
+vmap <D-]> >gv
+imap <D-]> <C-O>>>
+
+" bind command-[ to indent left
+nmap <D-[> <<
+vmap <D-[> <gv
+imap <D-[> <C-O><<
+
+" Replicate TextMate Cmd-Return
+imap <D-Enter> <Esc>o
+nmap <D-Enter> <Esc>o
+
+" Shift D duplicates anything highlighted on the line below...
+vmap D y'>p
+
+" Disable search match highlight
+" nmap <silent> <C-*> :silent noh<CR>
+" nmap <silent> ,/ :let @/=""<CR>
+nmap <silent> <esc><esc> :nohlsearch<cr>
+
+" Remap double ;; to enter EX mode
+nmap ;; :
+imap ;; <esc>:
+
+
+" Map <Leader>w to make window commands quicker
+nmap <Leader>w <C-w>
+
