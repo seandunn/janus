@@ -5,7 +5,7 @@ set ruler
 syntax on
 
 " Whitespace stuff
-set nowrap
+set wrap
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -30,9 +30,8 @@ set laststatus=2
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
 
-
-set noeol
-set binary
+set macmeta
+map <C-M-w> :set nowrap!<CR>
 
 " Set leader to <space> as it's the only key you have two
 " dedicated digits for!
@@ -48,6 +47,12 @@ let g:CommandTMaxHeight=20
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
 
+" Taglist
+let Tlist_Show_One_File=1
+let Tlist_Use_Right_Window=1
+let Tlist_Use_SingleClick=1
+let Tlist_Inc_Winwidth=1
+
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
@@ -58,7 +63,6 @@ if has("autocmd")
 endif
 
 function s:setupWrapping()
-  set wrap
   set wm=2
   set textwidth=72
 endfunction
@@ -111,7 +115,8 @@ set modeline
 set modelines=10
 
 " Default color scheme
-" color desert
+"color desert
+color sean_sorcerer
 
 "Directories for swp files
 set backupdir=~/.vim/backup
@@ -132,7 +137,8 @@ if has("autocmd")
 endif
 
 " Open .vimrc in a new tab
-nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>,v :tabedit $MYVIMRC<CR>
+nmap <leader>,g :tabedit $MYGVIMRC<CR>
 
 
 "Ack shortcut...

@@ -7,6 +7,8 @@ if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
   map <D-t> :CommandT<CR>
   imap <D-t> <Esc>:CommandT<CR>
+  let g:CommandTAcceptSelectionMap='' 
+  let g:CommandTAcceptSelectionTabMap='<CR>'
 
   " Command-Shift-F for Ack
   macmenu Window.Toggle\ Full\ Screen\ Mode key=<nop>
@@ -21,13 +23,19 @@ if has("gui_macvim")
   " Command-][ to increase/decrease indentation
   vmap <D-]> >gv
   vmap <D-[> <gv
+
+  " Command-Shift-T for Taglist suport
+  macmenu File.Open\ Tab\.\.\. key=<nop>
+  map <D-T> :TlistOpen<CR>
 endif
 
 " Start without the toolbar
 set guioptions-=T
+set go-=L
+set go-=l
 
 " Default gui color scheme
-color ir_black
+"color ir_black
 
 " ConqueTerm wrapper
 function StartTerm()
