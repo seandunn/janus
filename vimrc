@@ -32,6 +32,7 @@ set noequalalways
 
 set macmeta
 map <C-M-w> :set nowrap!<CR>
+imap ³ # 
 
 " Set leader to <space> as it's the only key you have two
 " dedicated digits for!
@@ -52,6 +53,7 @@ let Tlist_Show_One_File=1
 let Tlist_Use_Right_Window=1
 let Tlist_Use_SingleClick=1
 let Tlist_Inc_Winwidth=1
+let Tlist_Sort_Type = "name"
 
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
