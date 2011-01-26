@@ -62,12 +62,12 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-function s:setupWrapping()
+function! s:setupWrapping()
   set wm=2
   set textwidth=72
 endfunction
 
-function s:setupMarkup()
+function! s:setupMarkup()
   call s:setupWrapping()
   map <buffer> <Leader>p :Mm <CR>
 endfunction
@@ -118,6 +118,11 @@ set modelines=10
 "color desert
 color sean_sorcerer
 
+" Open .vimrc in a new tab
+nmap <leader>,v :tabedit $MYVIMRC<CR>
+nmap <leader>,g :tabedit $MYGVIMRC<CR>
+nmap <leader>,c :tabedit ~/.vim/colors/sean_sorcerer.vim<CR>
+
 "Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
@@ -133,12 +138,9 @@ map k gk
 
 " Source the vimrc file after saving it
 if has("autocmd")
-  autocmd bufwritepost .vimrc source  $MYVIMRC
+  autocmd! bufwritepost .vimrc source  $MYVIMRC
+  autocmd! bufwritepost sean_sorcerer.vim source ~/.vim/colors/sean_sorcerer.vim
 endif
-
-" Open .vimrc in a new tab
-nmap <leader>,v :tabedit $MYVIMRC<CR>
-nmap <leader>,g :tabedit $MYGVIMRC<CR>
 
 
 "Ack shortcut...
@@ -148,31 +150,8 @@ map <leader>a :Ack<space>
 " Insert HashRockets... :)
 imap <C-l> <Space>=><Space>
 
-" open tabs with command-<tab number>
-map <D-1> :tabn 1<CR>
-map <D-2> :tabn 2<CR>
-map <D-3> :tabn 3<CR>
-map <D-4> :tabn 4<CR>
-map <D-5> :tabn 5<CR>
-map <D-6> :tabn 6<CR>
-map <D-7> :tabn 7<CR>
-map <D-8> :tabn 8<CR>
-map <D-9> :tabn 9<CR>
-
-" bind command-] to indent right
-nmap <D-]> >>
-vmap <D-]> >gv
-imap <D-]> <C-O>>>
-
-" bind command-[ to indent left
-nmap <D-[> <<
-vmap <D-[> <gv
-imap <D-[> <C-O><<
-
-" Replicate TextMate Cmd-Return
-imap <D-Enter> <Esc>o
-nmap <D-Enter> <Esc>o
-
+" Ctrl-Shift-D to duplicate the current line below
+map <C-D> yyp
 " Shift D duplicates anything highlighted on the line below...
 vmap D y'>p
 

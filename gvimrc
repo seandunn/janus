@@ -19,6 +19,7 @@ if has("gui_macvim")
 
   " Command-/ to toggle comments
   map <D-/> <plug>NERDCommenterToggle<CR>
+  imap <D-/> <plug>NERDCommenterToggle<CR>
 
   " Command-][ to increase/decrease indentation
   vmap <D-]> >gv
@@ -27,6 +28,22 @@ if has("gui_macvim")
   " Command-Shift-T for Taglist suport
   macmenu File.Open\ Tab\.\.\. key=<nop>
   map <D-T> :TlistOpen<CR>
+
+  
+  " open tabs with command-<tab number>
+  map <D-1> :tabn 1<CR>
+  map <D-2> :tabn 2<CR>
+  map <D-3> :tabn 3<CR>
+  map <D-4> :tabn 4<CR>
+  map <D-5> :tabn 5<CR>
+  map <D-6> :tabn 6<CR>
+  map <D-7> :tabn 7<CR>
+  map <D-8> :tabn 8<CR>
+  map <D-9> :tabn 9<CR>
+
+  " Replicate TextMate Cmd-Return
+  imap <D-Enter> <Esc>o
+  nmap <D-Enter> <Esc>o
 endif
 
 " Start without the toolbar
