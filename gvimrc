@@ -27,7 +27,7 @@ if has("gui_macvim")
 
   " Command-Shift-T for Taglist suport
   macmenu File.Open\ Tab\.\.\. key=<nop>
-  map <D-T> :TlistOpen<CR>
+  map <D-T> :TlistToggle<CR>
 
   
   " open tabs with command-<tab number>
@@ -51,11 +51,19 @@ set guioptions-=T
 set go-=L
 set go-=l
 
+
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd! bufwritepost .gvimrc source  $MYGVIMRC
+endif
+
+
 " Default gui color scheme
 "color ir_black
+set guifont=Monaco:h12
 
 " ConqueTerm wrapper
-function StartTerm()
+function! StartTerm()
   execute 'ConqueTerm ' . $SHELL . ' --login'
   setlocal listchars=tab:\ \ 
 endfunction
@@ -67,7 +75,7 @@ autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 
 " Close all open buffers on entering a window if the only
 " buffer that's left is the NERDTree buffer
-function s:CloseIfOnlyNerdTreeLeft()
+function! s:CloseIfOnlyNerdTreeLeft()
   if exists("t:NERDTreeBufName")
     if bufwinnr(t:NERDTreeBufName) != -1
       if winnr("$") == 1
@@ -78,7 +86,7 @@ function s:CloseIfOnlyNerdTreeLeft()
 endfunction
 
 " If the parameter is a directory, cd into it
-function s:CdIfDirectory(directory)
+function! s:CdIfDirectory(directory)
   let explicitDirectory = isdirectory(a:directory)
   let directory = explicitDirectory || empty(a:directory)
 
@@ -98,7 +106,7 @@ function s:CdIfDirectory(directory)
 endfunction
 
 " NERDTree utility function
-function s:UpdateNERDTree(...)
+function! s:UpdateNERDTree(...)
   let stay = 0
 
   if(exists("a:1"))
@@ -121,12 +129,12 @@ function s:UpdateNERDTree(...)
   endif
 endfunction
 
-" Utility functions to create file commands
-function s:CommandCabbr(abbreviation, expansion)
+" Utility function!  to create file commands
+function! s:CommandCabbr(abbreviation, expansion)
   execute 'cabbrev ' . a:abbreviation . ' <c-r>=getcmdpos() == 1 && getcmdtype() == ":" ? "' . a:expansion . '" : "' . a:abbreviation . '"<CR>'
 endfunction
 
-function s:FileCommand(name, ...)
+function! s:FileCommand(name, ...)
   if exists("a:1")
     let funcname = a:1
   else
@@ -136,13 +144,13 @@ function s:FileCommand(name, ...)
   execute 'command -nargs=1 -complete=file ' . a:name . ' :call ' . funcname . '(<f-args>)'
 endfunction
 
-function s:DefineCommand(name, destination)
+function! s:DefineCommand(name, destination)
   call s:FileCommand(a:destination)
   call s:CommandCabbr(a:name, a:destination)
 endfunction
 
-" Public NERDTree-aware versions of builtin functions
-function ChangeDirectory(dir, ...)
+" Public NERDTree-aware versions of builtin function! 
+function! ChangeDirectory(dir, ...)
   execute "cd " . a:dir
   let stay = exists("a:1") ? a:1 : 1
 
@@ -153,12 +161,12 @@ function ChangeDirectory(dir, ...)
   endif
 endfunction
 
-function Touch(file)
+function! Touch(file)
   execute "!touch " . a:file
   call s:UpdateNERDTree()
 endfunction
 
-function Remove(file)
+function! Remove(file)
   let current_path = expand("%")
   let removed_path = fnamemodify(a:file, ":p")
 
@@ -171,12 +179,12 @@ function Remove(file)
   call s:UpdateNERDTree()
 endfunction
 
-function Mkdir(file)
+function! Mkdir(file)
   execute "!mkdir " . a:file
   call s:UpdateNERDTree()
 endfunction
 
-function Edit(file)
+function! Edit(file)
   if exists("b:NERDTreeRoot")
     wincmd p
   endif
@@ -205,3 +213,13 @@ call s:DefineCommand("mkdir", "Mkdir")
 if filereadable(expand("~/.gvimrc.local"))
   source ~/.gvimrc.local
 endif
+
+
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cursorline
+    autocmd WinLeave * set nocursorline
+augroup END
+
+doautocmd BgHighlight WinEnter -
+

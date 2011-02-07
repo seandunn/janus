@@ -32,7 +32,8 @@ set noequalalways
 
 set macmeta
 map <C-M-w> :set nowrap!<CR>
-imap ³ # 
+" Fix for macmeta remapping the # symbol
+imap ³ #
 
 " Set leader to <space> as it's the only key you have two
 " dedicated digits for!
@@ -52,11 +53,16 @@ map <Leader><Leader> :ZoomWin<CR>
 let Tlist_Show_One_File=1
 let Tlist_Use_Right_Window=1
 let Tlist_Use_SingleClick=1
-let Tlist_Inc_Winwidth=1
+let Tlist_WinWidth=40
 let Tlist_Sort_Type = "name"
+let Tlist_Close_On_Select=1
+let Tlist_GainFocus_On_ToggleOpen=1
 
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+" Open tag in a new tab - mapped to Alt-Shift-M to match the goto method
+" command in TextMate/RubyAMP
+map <M-M> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Remember last location in file
 if has("autocmd")
@@ -118,12 +124,12 @@ set modelines=10
 
 " Default color scheme
 "color desert
-color sean_sorcerer
+color sean_tm_twilight
 
 " Open .vimrc in a new tab
 nmap <leader>,v :tabedit $MYVIMRC<CR>
 nmap <leader>,g :tabedit $MYGVIMRC<CR>
-nmap <leader>,c :tabedit ~/.vim/colors/sean_sorcerer.vim<CR>
+nmap <leader>,c :tabedit ~/.vim/colors/sean_tm_twilight.vim<CR>
 
 "Directories for swp files
 set backupdir=~/.vim/backup
@@ -141,7 +147,7 @@ map k gk
 " Source the vimrc file after saving it
 if has("autocmd")
   autocmd! bufwritepost .vimrc source  $MYVIMRC
-  autocmd! bufwritepost sean_sorcerer.vim source ~/.vim/colors/sean_sorcerer.vim
+  autocmd! bufwritepost sean_tm_twilight.vim source ~/.vim/colors/sean_tm_twilight.vim
 endif
 
 
@@ -158,8 +164,6 @@ map <C-D> yyp
 vmap D y'>p
 
 " Disable search match highlight
-" nmap <silent> <C-*> :silent noh<CR>
-" nmap <silent> ,/ :let @/=""<CR>
 nmap <silent> <esc><esc> :nohlsearch<cr>
 
 " Remap double ;; to enter EX mode
