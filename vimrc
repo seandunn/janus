@@ -167,8 +167,8 @@ vmap D y'>p
 nmap <silent> <esc><esc> :nohlsearch<cr>
 
 " Remap double ;; to enter EX mode
-nmap ;; :
-imap ;; <esc>:
+"nmap ;; :
+"imap ;; <esc>:
 
 
 " Map <Leader>w to make window commands quicker

@@ -21,9 +21,15 @@ if has("gui_macvim")
   map <D-/> <plug>NERDCommenterToggle<CR>
   imap <D-/> <plug>NERDCommenterToggle<CR>
 
-  " Command-][ to increase/decrease indentation
+  " bind command-] to indent right
+  nmap <D-]> >>
   vmap <D-]> >gv
+  imap <D-]> <C-O>>>
+
+  " bind command-[ to indent left
+  nmap <D-[> <<
   vmap <D-[> <gv
+  imap <D-[> <C-O><<
 
   " Command-Shift-T for Taglist suport
   macmenu File.Open\ Tab\.\.\. key=<nop>
