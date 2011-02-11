@@ -19,7 +19,7 @@ if has("gui_macvim")
 
   " Command-/ to toggle comments
   map <D-/> <plug>NERDCommenterToggle<CR>
-  imap <D-/> <plug>NERDCommenterToggle<CR>
+  imap <D-/> <C-o><plug>NERDCommenterToggle<CR>
 
   " bind command-] to indent right
   nmap <D-]> >>
@@ -35,7 +35,6 @@ if has("gui_macvim")
   macmenu File.Open\ Tab\.\.\. key=<nop>
   map <D-T> :TlistToggle<CR>
 
-  
   " open tabs with command-<tab number>
   map <D-1> :tabn 1<CR>
   map <D-2> :tabn 2<CR>
@@ -67,6 +66,8 @@ endif
 " Default gui color scheme
 "color ir_black
 set guifont=Monaco:h12
+"set guifont=Bitstream\ Vera\ Sans\ Mono:h12
+"set linespace=3
 
 " ConqueTerm wrapper
 function! StartTerm()
@@ -220,12 +221,7 @@ if filereadable(expand("~/.gvimrc.local"))
   source ~/.gvimrc.local
 endif
 
-
-augroup BgHighlight
-    autocmd!
-    autocmd WinEnter * set cursorline
-    autocmd WinLeave * set nocursorline
-augroup END
-
-doautocmd BgHighlight WinEnter -
+" Move line highlighting with window focus
+autocmd WinEnter * set cursorline
+autocmd WinLeave * set nocursorline
 

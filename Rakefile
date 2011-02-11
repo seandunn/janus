@@ -147,6 +147,7 @@ vim_plugin_task "align",            "http://github.com/tsaleh/vim-align.git"
 vim_plugin_task "unimpaired",       "http://github.com/tpope/vim-unimpaired.git"
 vim_plugin_task "searchfold",       "http://github.com/vim-scripts/searchfold.vim.git"
 vim_plugin_task "irblack",          "http://github.com/wgibbs/vim-irblack.git"
+vim_plugin_task "delimitMate",      "http://github.com/Raimondi/delimitMate.git"
 
 vim_plugin_task "command_t",        "http://github.com/wincent/Command-T.git" do
   sh "find ruby -name '.gitignore' | xargs rm"

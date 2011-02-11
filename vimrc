@@ -30,10 +30,13 @@ set laststatus=2
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
 
-set macmeta
-map <C-M-w> :set nowrap!<CR>
+" Toggle window wrapping
+" should be alt-shift-W but due to the funny macmeta thing it's „
+" instead
+map „ :set nowrap!<CR>
 " Fix for macmeta remapping the # symbol
-imap ³ #
+" set macmeta
+"imap ³ #
 
 " Set leader to <space> as it's the only key you have two
 " dedicated digits for!
@@ -62,7 +65,7 @@ let Tlist_GainFocus_On_ToggleOpen=1
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 " Open tag in a new tab - mapped to Alt-Shift-M to match the goto method
 " command in TextMate/RubyAMP
-map <M-M> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map ˜ :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Remember last location in file
 if has("autocmd")
@@ -144,10 +147,13 @@ endif
 map j gj
 map k gk
 
-" Source the vimrc file after saving it
 if has("autocmd")
+	" Source the vimrc file after saving it
   autocmd! bufwritepost .vimrc source  $MYVIMRC
   autocmd! bufwritepost sean_tm_twilight.vim source ~/.vim/colors/sean_tm_twilight.vim
+
+	" Stip trailing spaces from file
+	"autocmd! bufwrite :%s/\s*$//g
 endif
 
 
@@ -157,6 +163,9 @@ map <leader>a :Ack<space>
 
 " Insert HashRockets... :)
 imap <C-l> <Space>=><Space>
+" Insert a space after a # for comments
+" should be moved to the ruby.vim grammar
+imap # #<Space>
 
 " Ctrl-Shift-D to duplicate the current line below
 map <C-D> yyp
@@ -174,3 +183,5 @@ nmap <silent> <esc><esc> :nohlsearch<cr>
 " Map <Leader>w to make window commands quicker
 nmap <Leader>w <C-w>
 
+" Alignment
+map <Leader>l :Align<Space>
