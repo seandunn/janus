@@ -120,6 +120,7 @@ def vim_plugin_task(name, repo=nil)
   task :default => name
 end
 
+vim_plugin_task "abolish.vim",      "http://github.com/tpope/vim-abolish.git"
 vim_plugin_task "ack.vim",          "http://github.com/mileszs/ack.vim.git"
 vim_plugin_task "color-sampler",    "http://www.vim.org/scripts/download_script.php?src_id=12179"
 vim_plugin_task "conque",           "http://conque.googlecode.com/files/conque_1.1.tar.gz"

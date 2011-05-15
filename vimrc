@@ -165,7 +165,8 @@ map <leader>a :Ack<space>
 imap <C-l> <Space>=><Space>
 " Insert a space after a # for comments
 " should be moved to the ruby.vim grammar
-imap # #<Space>
+" imap # #<Space>
+let NERDSpaceDelims=1
 
 " Ctrl-Shift-D to duplicate the current line below
 map <C-D> yyp
@@ -185,3 +186,19 @@ nmap <Leader>w <C-w>
 
 " Alignment
 map <Leader>l :Align<Space>
+
+" Ruby syntax checking...
+" autocmd BufWritePost *.rb make -c %
+
+
+" Colemak remapping...
+noremap n j
+" Colemak window support...
+map <leader>wn <C-W>j
+noremap e k
+map <leader>we <C-W>k
+noremap k n
+noremap j e
+noremap i l
+map <leader>wi <C-W>l
+noremap l i
