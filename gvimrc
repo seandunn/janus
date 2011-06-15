@@ -7,8 +7,8 @@ if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
   map <D-t> :CommandT<CR>
   imap <D-t> <Esc>:CommandT<CR>
-  let g:CommandTAcceptSelectionMap='' 
-  let g:CommandTAcceptSelectionTabMap='<CR>'
+  " let g:CommandTAcceptSelectionMap='' 
+  " let g:CommandTAcceptSelectionTabMap='<CR>'
 
   " Command-Shift-F for Ack
   macmenu Window.Toggle\ Full\ Screen\ Mode key=<nop>
@@ -49,12 +49,18 @@ if has("gui_macvim")
   " Replicate TextMate Cmd-Return
   imap <D-Enter> <Esc>o
   nmap <D-Enter> <Esc>o
+
+	macmenu &File.Save key=<nop>
+	map <D-s> :w<CR>
+	imap <D-s> <Esc>:w<CR>
 endif
 
 " Start without the toolbar
 set guioptions-=T
 set go-=L
 set go-=l
+set go-=r
+set go-=R
 
 
 " Source the vimrc file after saving it
@@ -64,7 +70,7 @@ endif
 
 
 " Default gui color scheme
-"color ir_black
+color sean_tm_twilight
 set guifont=Monaco:h12
 "set guifont=Bitstream\ Vera\ Sans\ Mono:h12
 "set linespace=3
@@ -221,7 +227,4 @@ if filereadable(expand("~/.gvimrc.local"))
   source ~/.gvimrc.local
 endif
 
-" Move line highlighting with window focus
-autocmd WinEnter * set cursorline
-autocmd WinLeave * set nocursorline
 

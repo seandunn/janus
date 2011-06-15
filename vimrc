@@ -1,5 +1,8 @@
 set nocompatible
 
+set mouse=a
+set mousehide
+
 set number
 set ruler
 syntax on
@@ -30,6 +33,7 @@ set laststatus=2
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
 
+
 " Toggle window wrapping
 " should be alt-shift-W but due to the funny macmeta thing it's „
 " instead
@@ -44,6 +48,7 @@ let mapleader = " "
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$']
+let NERDTreeMapOpenExpl="E"
 map <Leader>n :NERDTreeToggle<CR>
 
 " Command-T configuration
@@ -126,8 +131,10 @@ set modeline
 set modelines=10
 
 " Default color scheme
-"color desert
-color sean_tm_twilight
+"color sean_tm_twilight
+" colorscheme xoria256
+colorscheme wombat256
+" colorscheme seans_wombat256
 
 " Open .vimrc in a new tab
 nmap <leader>,v :tabedit $MYVIMRC<CR>
@@ -142,10 +149,6 @@ set directory=~/.vim/backup
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-
-" Movement
-map j gj
-map k gk
 
 if has("autocmd")
 	" Source the vimrc file after saving it
@@ -168,6 +171,8 @@ imap <C-l> <Space>=><Space>
 " imap # #<Space>
 let NERDSpaceDelims=1
 
+map <leader>/ <plug>NERDCommenterToggle<CR>
+
 " Ctrl-Shift-D to duplicate the current line below
 map <C-D> yyp
 " Shift D duplicates anything highlighted on the line below...
@@ -177,8 +182,8 @@ vmap D y'>p
 nmap <silent> <esc><esc> :nohlsearch<cr>
 
 " Remap double ;; to enter EX mode
-"nmap ;; :
-"imap ;; <esc>:
+nmap ;; :
+imap ;; <esc>:
 
 
 " Map <Leader>w to make window commands quicker
@@ -192,13 +197,23 @@ map <Leader>l :Align<Space>
 
 
 " Colemak remapping...
-noremap n j
-" Colemak window support...
-map <leader>wn <C-W>j
-noremap e k
-map <leader>we <C-W>k
+noremap n gj
+noremap e gk
 noremap k n
 noremap j e
 noremap i l
-map <leader>wi <C-W>l
 noremap l i
+
+" Movement
+" map j gj
+" map k gk
+
+map <leader>wn <C-W>j
+map <leader>we <C-W>k
+noremap <leader>wi <C-W>l
+
+map <C-t> :CommandT<CR>
+
+" Move line highlighting with window focus
+autocmd WinEnter * set cursorline
+autocmd WinLeave * set nocursorline
