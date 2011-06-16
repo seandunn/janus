@@ -66,11 +66,10 @@ let Tlist_Sort_Type = "name"
 let Tlist_Close_On_Select=1
 let Tlist_GainFocus_On_ToggleOpen=1
 
-" CTags
+" CTags...
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
-" Open tag in a new tab - mapped to Alt-Shift-M to match the goto method
-" command in TextMate/RubyAMP
-map ˜ :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" Open tag
+map <leader>o :exec("tag ".expand("<cword>"))<CR>
 
 " Remember last location in file
 if has("autocmd")
@@ -112,7 +111,7 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Opens a tab edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+" map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
@@ -131,9 +130,10 @@ set modeline
 set modelines=10
 
 " Default color scheme
-"color sean_tm_twilight
+set t_Co=256
+color sean_tm_twilight
 " colorscheme xoria256
-colorscheme wombat256
+" colorscheme wombat256
 " colorscheme seans_wombat256
 
 " Open .vimrc in a new tab
@@ -182,9 +182,10 @@ vmap D y'>p
 nmap <silent> <esc><esc> :nohlsearch<cr>
 
 " Remap double ;; to enter EX mode
-nmap ;; :
+" nmap ;; :
 imap ;; <esc>:
-
+imap § <esc>:
+nmap § :
 
 " Map <Leader>w to make window commands quicker
 nmap <Leader>w <C-w>
@@ -217,3 +218,15 @@ map <C-t> :CommandT<CR>
 " Move line highlighting with window focus
 autocmd WinEnter * set cursorline
 autocmd WinLeave * set nocursorline
+
+" Pipes the output of Ex to a buffer in a new tab...
+function! TabMessage(cmd)
+  redir => message
+  silent execute a:cmd
+  redir END
+  tabnew
+  silent put=message
+  set nomodified
+endfunction
+command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
+
