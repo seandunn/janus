@@ -71,6 +71,7 @@ endif
 
 " Default gui color scheme
 color sean_tm_twilight
+" color seans_wombat256
 set guifont=Monaco:h12
 "set guifont=Bitstream\ Vera\ Sans\ Mono:h12
 "set linespace=3
@@ -215,6 +216,9 @@ ruby << RUBY
 RUBY
 endfunction
 
+" Turn off balloneval as it's annoying!
+set noballooneval
+
 " Define the NERDTree-aware aliases
 call s:DefineCommand("cd", "ChangeDirectory")
 call s:DefineCommand("touch", "Touch")
@@ -228,3 +232,4 @@ if filereadable(expand("~/.gvimrc.local"))
 endif
 
 
+set autoread

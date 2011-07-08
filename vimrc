@@ -70,6 +70,7 @@ let Tlist_GainFocus_On_ToggleOpen=1
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 " Open tag
 map <leader>o :exec("tag ".expand("<cword>"))<CR>
+" map <leader>o :tj<CR>
 
 " Remember last location in file
 if has("autocmd")
@@ -107,7 +108,7 @@ filetype plugin indent on
 
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+" map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Opens a tab edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>t
@@ -131,10 +132,10 @@ set modelines=10
 
 " Default color scheme
 set t_Co=256
-color sean_tm_twilight
+" color sean_tm_twilight
 " colorscheme xoria256
 " colorscheme wombat256
-" colorscheme seans_wombat256
+colorscheme seans_wombat256
 
 " Open .vimrc in a new tab
 nmap <leader>,v :tabedit $MYVIMRC<CR>
@@ -157,6 +158,8 @@ if has("autocmd")
 
 	" Stip trailing spaces from file
 	"autocmd! bufwrite :%s/\s*$//g
+  autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+  
 endif
 
 
@@ -166,11 +169,16 @@ map <leader>a :Ack<space>
 
 " Insert HashRockets... :)
 imap <C-l> <Space>=><Space>
-" Insert a space after a # for comments
-" should be moved to the ruby.vim grammar
-" imap # #<Space>
-let NERDSpaceDelims=1
 
+" Textmate-like Surround stuff...
+vmap " s"
+vmap ' s'
+vmap ( s)
+vmap [ s]
+vmap { s}
+
+" NERDCommeter stuff...
+let NERDSpaceDelims=1
 map <leader>/ <plug>NERDCommenterToggle<CR>
 
 " Ctrl-Shift-D to duplicate the current line below
@@ -195,7 +203,21 @@ map <Leader>l :Align<Space>
 
 " Ruby syntax checking...
 " autocmd BufWritePost *.rb make -c %
+" SyntasticEnable
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
+
+" Blockle
+let g:blockle_mapping = '<C-{>'
+
+" Movement
+" map j gj
+" map k gk
 
 " Colemak remapping...
 noremap n gj
@@ -205,9 +227,6 @@ noremap j e
 noremap i l
 noremap l i
 
-" Movement
-" map j gj
-" map k gk
 
 map <leader>wn <C-W>j
 map <leader>we <C-W>k
@@ -229,4 +248,7 @@ function! TabMessage(cmd)
   set nomodified
 endfunction
 command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
+
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
