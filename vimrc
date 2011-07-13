@@ -241,15 +241,14 @@ let g:syntastic_auto_loc_list=1
 " Blockle
 let g:blockle_mapping = '<C-{>'
 
-" Movement
-" map j gj
-" map k gk
-
 map <C-t> :CommandT<CR>
 
 " Move line highlighting with window focus
 autocmd WinEnter * set cursorline
 autocmd WinLeave * set nocursorline
+
+" Show (partial) command in the status line
+set showcmd
 
 " Pipes the output of Ex to a buffer in a new tab...
 function! TabMessage(cmd)
@@ -264,4 +263,9 @@ command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
 
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" MacVIM shift+arrow-keys behavior (required in .vimrc)
+let macvim_hig_shift_movement = 1
+
+
 
