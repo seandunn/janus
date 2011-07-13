@@ -156,8 +156,8 @@ set modelines=10
 set t_Co=256
 " color sean_tm_twilight
 " colorscheme xoria256
-" colorscheme wombat256
-colorscheme seans_wombat256
+colorscheme wombat256
+" colorscheme seans_wombat256
 
 " Open .vimrc in a new tab
 nmap <leader>,v :tabedit $MYVIMRC<CR>
