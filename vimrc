@@ -1,11 +1,33 @@
 set nocompatible
 
+" Colemak remapping...
+noremap <esc>n <C-w>j
+noremap <esc>h <C-w>h
+noremap <esc>e <C-w>k
+noremap <esc>i <C-w>l
+noremap <esc>c <C-w>c
+noremap <esc>v <C-w>v
+noremap <esc>s <C-w>s
+noremap <esc>p <C-w>p
+
+noremap n gj
+noremap e gk
+noremap k n
+noremap K N
+noremap j e
+noremap i l
+noremap l i
+
+
 set mouse=a
 set mousehide
 
 set number
 set ruler
 syntax on
+
+" Load the matchit plugin
+runtime macros/matchit.vim
 
 " Whitespace stuff
 set wrap
@@ -177,6 +199,8 @@ vmap ( s)
 vmap [ s]
 vmap { s}
 
+imap <C-s><C-s> <C-s><C-e>
+
 " NERDCommeter stuff...
 let NERDSpaceDelims=1
 map <leader>/ <plug>NERDCommenterToggle<CR>
@@ -197,6 +221,8 @@ nmap § :
 
 " Map <Leader>w to make window commands quicker
 nmap <Leader>w <C-w>
+set splitright
+set splitbelow
 
 " Alignment
 map <Leader>l :Align<Space>
@@ -218,19 +244,6 @@ let g:blockle_mapping = '<C-{>'
 " Movement
 " map j gj
 " map k gk
-
-" Colemak remapping...
-noremap n gj
-noremap e gk
-noremap k n
-noremap j e
-noremap i l
-noremap l i
-
-
-map <leader>wn <C-W>j
-map <leader>we <C-W>k
-noremap <leader>wi <C-W>l
 
 map <C-t> :CommandT<CR>
 

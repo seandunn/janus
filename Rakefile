@@ -149,6 +149,8 @@ vim_plugin_task "align",            "http://github.com/tsaleh/vim-align.git"
 vim_plugin_task "searchfold",       "http://github.com/vim-scripts/searchfold.vim.git"
 vim_plugin_task "irblack",          "http://github.com/wgibbs/vim-irblack.git"
 vim_plugin_task "delimitMate",      "http://github.com/Raimondi/delimitMate.git"
+vim_plugin_task "vim-textobj-user", "http://github.com/kana/vim-textobj-user.git"
+vim_plugin_task "ruby-text-object", "http://github.com/nelstrom/vim-textobj-rubyblock.git"
 
 vim_plugin_task "command_t",        "http://github.com/wincent/Command-T.git" do
   sh "find ruby -name '.gitignore' | xargs rm"
