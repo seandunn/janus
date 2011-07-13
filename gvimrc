@@ -71,7 +71,7 @@ endif
 
 " Default gui color scheme
 color sean_tm_twilight
-" color seans_wombat256
+" color ir_black
 set guifont=Monaco:h12
 "set guifont=Bitstream\ Vera\ Sans\ Mono:h12
 "set linespace=3

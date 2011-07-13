@@ -142,7 +142,9 @@ vim_plugin_task "textile",          "http://github.com/timcharper/textile.vim.gi
 vim_plugin_task "rails",            "http://github.com/tpope/vim-rails.git"
 vim_plugin_task "rspec",            "http://github.com/taq/vim-rspec.git"
 vim_plugin_task "zoomwin",          "http://www.vim.org/scripts/download_script.php?src_id=9865"
-vim_plugin_task "snipmate",         "http://github.com/msanders/snipmate.vim.git"
+vim_plugin_task "tlib",             "http://github.com/tomtom/tlib_vim.git"
+vim_plugin_task "vim-addon-utils",  "http://github.com/MarcWeber/vim-addon-mw-utils.git"
+vim_plugin_task "snipmate",         "http://github.com/honza/snipmate-snippets.git"
 vim_plugin_task "markdown",         "http://github.com/tpope/vim-markdown.git"
 vim_plugin_task "align",            "http://github.com/tsaleh/vim-align.git"
 # vim_plugin_task "unimpaired",       "http://github.com/tpope/vim-unimpaired.git"
@@ -151,6 +153,7 @@ vim_plugin_task "irblack",          "http://github.com/wgibbs/vim-irblack.git"
 vim_plugin_task "delimitMate",      "http://github.com/Raimondi/delimitMate.git"
 vim_plugin_task "vim-textobj-user", "http://github.com/kana/vim-textobj-user.git"
 vim_plugin_task "ruby-text-object", "http://github.com/nelstrom/vim-textobj-rubyblock.git"
+vim_plugin_task "Solarized",        "http://github.com/altercation/vim-colors-solarized.git"
 
 vim_plugin_task "command_t",        "http://github.com/wincent/Command-T.git" do
   sh "find ruby -name '.gitignore' | xargs rm"
