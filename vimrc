@@ -186,7 +186,7 @@ endif
 
 
 "Ack shortcut...
-map <leader>a :Ack<space>
+vmap <C-f> y:Ack --literal '<C-R>0' .
 
 
 " Insert HashRockets... :)
@@ -199,7 +199,7 @@ vmap ( s)
 vmap [ s]
 vmap { s}
 
-imap <C-s><C-s> <C-s><C-e>
+imap <C-.> <C-s><C-e>
 
 " NERDCommeter stuff...
 let NERDSpaceDelims=1
@@ -210,6 +210,17 @@ map <C-D> yyp
 " Shift D duplicates anything highlighted on the line below...
 vmap D y'>p
 
+" Paste buffer yanking and pasting :)
+" noremap  y "*y
+" noremap  yy "*yy
+" noremap  Y "*Y
+" noremap  p "*p
+" noremap  P "*P
+" vnoremap y "*y
+" vnoremap Y "*Y
+" vnoremap p "*p
+" vnoremap P "*P
+
 " Disable search match highlight
 nmap <silent> <esc><esc> :nohlsearch<cr>
 
@@ -219,8 +230,6 @@ imap ;; <esc>:
 imap § <esc>:
 nmap § :
 
-" Map <Leader>w to make window commands quicker
-nmap <Leader>w <C-w>
 set splitright
 set splitbelow
 
@@ -234,12 +243,24 @@ map <Leader>l :Align<Space>
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
 
+setlocal spell spelllang=en_gb
+
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
 
 " Blockle
-let g:blockle_mapping = '<C-{>'
+" TODO fix this...
+map <D-j> <Plug>BlockToggle
+
+" Gundo
+function! MyGundoToggle()
+  call ZoomWin()
+  :GundoToggle
+endfunction
+
+nnoremap <F5> :GundoToggle<CR>
+" nnoremap <F5> call MyGundoToggle()
 
 map <C-t> :CommandT<CR>
 
