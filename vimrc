@@ -185,8 +185,9 @@ if has("autocmd")
 endif
 
 
-"Ack shortcut...
+" Ack shortcut...
 vmap <C-f> y:Ack --literal '<C-R>0' .
+map <C-f> y:Ack --literal '<C-R>=expand("<cword>")<CR>' .<CR>
 
 
 " Insert HashRockets... :)
@@ -254,6 +255,7 @@ let g:syntastic_auto_loc_list=1
 map <D-j> <Plug>BlockToggle
 
 " Gundo
+let g:gundo_width=120
 function! MyGundoToggle()
   call ZoomWin()
   :GundoToggle
