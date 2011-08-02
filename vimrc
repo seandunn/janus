@@ -55,6 +55,9 @@ set laststatus=2
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
 
+" Splits should be created in the same way as every other gui!
+set splitright
+set splitbelow
 
 " Toggle window wrapping
 " should be alt-shift-W but due to the funny macmeta thing it's „
@@ -225,9 +228,6 @@ nmap <silent> <esc><esc> :nohlsearch<cr>
 imap ;; <esc>:
 imap § <esc>:
 nmap § :
-
-set splitright
-set splitbelow
 
 " Alignment
 map <Leader>l :Align<Space>
