@@ -154,10 +154,14 @@ set modelines=10
 
 " Default color scheme
 set t_Co=256
-" color sean_tm_twilight
+if has("gui_macvim")
+  colorscheme sean_tm_twilight
+else
+  colorscheme wombat256
 " colorscheme xoria256
-colorscheme wombat256
 " colorscheme seans_wombat256
+endif
+
 
 " Open .vimrc in a new tab
 nmap <leader>,v :tabedit $MYVIMRC<CR>
@@ -186,8 +190,8 @@ endif
 
 
 " Ack shortcut...
-vmap <C-f> y:Ack --literal '<C-R>0' .
-map <C-f> y:Ack --literal '<C-R>=expand("<cword>")<CR>' .<CR>
+vmap <leader>f y:Ack --literal '<C-R>0' .
+map <leader>f y:Ack --literal '<C-R>=expand("<cword>")<CR>' .<CR>
 
 
 " Insert HashRockets... :)
@@ -201,15 +205,6 @@ vmap [ s]
 vmap { s}
 
 imap <C-.> <C-s><C-e>
-
-" NERDCommeter stuff...
-let NERDSpaceDelims=1
-map <leader>/ <plug>NERDCommenterToggle<CR>
-
-" Ctrl-Shift-D to duplicate the current line below
-map <C-D> yyp
-" Shift D duplicates anything highlighted on the line below...
-vmap D y'>p
 
 " Paste buffer yanking and pasting :)
 " noremap  y "*y
@@ -237,12 +232,7 @@ set splitbelow
 " Alignment
 map <Leader>l :Align<Space>
 
-" Ruby syntax checking...
-" autocmd BufWritePost *.rb make -c %
-" SyntasticEnable
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+set statusline+=set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 setlocal spell spelllang=en_gb
 
@@ -259,6 +249,13 @@ endfunction
 
 nnoremap <F5> :GundoToggle<CR>
 " nnoremap <F5> call MyGundoToggle()
+
+" Persistent undo
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000 "maximum number of changes that can be undone
+set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+
 
 map <C-t> :CommandT<CR>
 

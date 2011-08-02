@@ -18,8 +18,8 @@ if has("gui_macvim")
   map <D-e> :call StartTerm()<CR>
 
   " Command-/ to toggle comments
-  map <D-/> <plug>NERDCommenterToggle<CR>
-  imap <D-/> <C-o><plug>NERDCommenterToggle<CR>
+  " map <D-/> <plug>NERDCommenterToggle<CR>
+  " imap <D-/> <C-o><plug>NERDCommenterToggle<CR>
 
   " bind command-] to indent right
   nmap <D-]> >>
@@ -233,3 +233,4 @@ endif
 
 
 set autoread
+
