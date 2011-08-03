@@ -72,6 +72,7 @@ map „ :set nowrap!<CR>
 let mapleader = " "
 
 " NERDTree configuration
+let NERDTreeStatusline="NERDTree"
 let NERDTreeIgnore=['\.rbc$', '\~$']
 let NERDTreeMapOpenExpl="E"
 map <Leader>n :NERDTreeToggle<CR>
@@ -242,13 +243,15 @@ let g:syntastic_auto_loc_list=1
 
 " Gundo
 let g:gundo_width=120
-function! MyGundoToggle()
-  call ZoomWin()
-  :GundoToggle
+function! TabGundo()
+  tab split
+  GundoToggle
 endfunction
 
-nnoremap <F5> :GundoToggle<CR>
-" nnoremap <F5> call MyGundoToggle()
+command! -complete=command TabGundo call TabGundo()
+
+" nnoremap <F5> :GundoToggle<CR>
+nnoremap <F5> :TabGundo<CR><c-w>=
 
 " Persistent undo
 set undodir=~/.vim/undodir
