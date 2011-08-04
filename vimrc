@@ -79,6 +79,7 @@ map <Leader>n :NERDTreeToggle<CR>
 
 " Command-T configuration
 let g:CommandTMaxHeight=20
+set wildignore+=tmp/**
 
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
@@ -250,8 +251,15 @@ endfunction
 
 command! -complete=command TabGundo call TabGundo()
 
-" nnoremap <F5> :GundoToggle<CR>
 nnoremap <F5> :TabGundo<CR><c-w>=
+
+function! GitStatusTab()
+  tab split
+  Gstatus
+endfunction
+
+command! -complete=command GstatusTab call GitStatusTab()
+map <F4> :GstatusTab<CR><c-w>=
 
 " Persistent undo
 set undodir=~/.vim/undodir

@@ -30,7 +30,7 @@ hi FoldColumn guifg=#828282 guibg=#000000
 
 
 
-hi Normal  guifg=#f8f8f8 guibg=#111111 gui=NONE
+hi Normal  guifg=#f8f8f8 guibg=#141414 gui=NONE
 hi Boolean  guifg=#cf6a4c guibg=NONE gui=NONE
 hi Character  guifg=#cf6a4c guibg=NONE gui=NONE
 hi Comment  guifg=#504c51 guibg=NONE gui=italic
