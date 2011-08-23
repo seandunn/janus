@@ -16,3 +16,4 @@ indent
 .VimballRecord
 .DS_Store
 syntax_checkers/*
+undodir/**

@@ -1,6 +1,7 @@
 set nocompatible
 
 " Colemak remapping...
+" Window commands
 noremap <esc>n <C-w>j
 noremap <esc>h <C-w>h
 noremap <esc>e <C-w>k
@@ -9,12 +10,16 @@ noremap <esc>c <C-w>c
 noremap <esc>v <C-w>v
 noremap <esc>s <C-w>s
 noremap <esc>p <C-w>p
+map <esc><bs> :bd<cr>
 
+" Home row movement stuff
 noremap n gj
 noremap e gk
 noremap k n
 noremap K N
+
 noremap j e
+
 noremap i l
 noremap l i
 
@@ -59,6 +64,10 @@ set noequalalways
 set splitright
 set splitbelow
 
+" When switching to a buffer move the first open window with the buffer
+" in...
+set switchbuf=usetab
+
 " Toggle window wrapping
 " should be alt-shift-W but due to the funny macmeta thing it's „
 " instead
@@ -80,18 +89,16 @@ map <Leader>n :NERDTreeToggle<CR>
 " Command-T configuration
 let g:CommandTMaxHeight=20
 set wildignore+=tmp/**
-
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
 
 " Taglist
-let Tlist_Show_One_File=1
-let Tlist_Use_Right_Window=1
-let Tlist_Use_SingleClick=1
-let Tlist_WinWidth=40
-let Tlist_Sort_Type = "name"
-let Tlist_Close_On_Select=1
-let Tlist_GainFocus_On_ToggleOpen=1
+" let Tlist_Use_Right_Window=1
+" let Tlist_Use_SingleClick=1
+" let Tlist_WinWidth=40
+" let Tlist_Sort_Type = "name"
+" let Tlist_Close_On_Select=1
+" let Tlist_GainFocus_On_ToggleOpen=1
 
 " CTags...
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
@@ -195,8 +202,8 @@ endif
 
 
 " Ack shortcut...
-vmap <leader>f y:Ack --literal '<C-R>0' .
-map <leader>f y:Ack --literal '<C-R>=expand("<cword>")<CR>' .<CR>
+map <leader>f y:Ack --literal --ignore-dir=vendor --ignore-dir=script --ignore-dir=log --ignore-dir=data --ignore-dir=doc --ignore-dir=tmp '<C-R>=expand("<cword>")<CR>' .<CR>
+vmap <leader>f y:Ack --literal '<C-R>0'<space>
 
 
 " Insert HashRockets... :)
@@ -225,11 +232,10 @@ imap <C-.> <C-s><C-e>
 " Disable search match highlight
 nmap <silent> <esc><esc> :nohlsearch<cr>
 
-" Remap double ;; to enter EX mode
-" nmap ;; :
-imap ;; <esc>:
-imap § <esc>:
-nmap § :
+" Remap double \\ to enter EX mode
+imap \\ <esc>:
+map \\ :
+
 
 " Alignment
 map <Leader>l :Align<Space>

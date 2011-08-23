@@ -30,10 +30,10 @@ hi FoldColumn guifg=#828282 guibg=#000000
 
 
 
-hi Normal  guifg=#f8f8f8 guibg=#141414 gui=NONE
+hi Normal  guifg=#f8f8f8 guibg=#151515 gui=NONE
 hi Boolean  guifg=#cf6a4c guibg=NONE gui=NONE
 hi Character  guifg=#cf6a4c guibg=NONE gui=NONE
-hi Comment  guifg=#504c51 guibg=NONE gui=italic
+hi Comment  guifg=#696969 guibg=NONE gui=italic
 hi Conditional  guifg=#cda869 guibg=NONE gui=NONE
 hi Constant  guifg=#cf6a4c guibg=NONE gui=NONE
 hi Define  guifg=#cda869 guibg=NONE gui=NONE
@@ -57,7 +57,11 @@ hi Tag  guifg=#9b703f guibg=NONE gui=NONE
 hi Title  guifg=#f8f8f8 guibg=NONE gui=bold
 hi Todo  guifg=#504c51 guibg=NONE gui=inverse,bold,italic
 hi Type  guifg=#9b703f guibg=NONE gui=NONE
-hi Underlined  guifg=NONE guibg=NONE gui=underline
+hi Underlined  guifg=NONE guibg=NONE gui=underline ctermfg=NONE ctermbg=NONE term=underline cterm=underline
+hi SpellBad   guisp=red    gui=undercurl guifg=NONE guibg=NONE ctermfg=red ctermbg=NONE term=underline cterm=underline
+hi SpellCap   guisp=yellow gui=undercurl guifg=NONE guibg=NONE ctermfg=red ctermbg=NONE term=underline cterm=underline
+hi SpellRare  guisp=blue   gui=undercurl guifg=NONE guibg=NONE ctermfg=red ctermbg=NONE term=underline cterm=underline
+hi SpellLocal guisp=orange gui=undercurl guifg=NONE guibg=NONE ctermfg=red ctermbg=NONE term=underline cterm=underline
 hi rubyClass  guifg=#cda869 guibg=NONE gui=NONE
 hi rubyFunction  guifg=#9b703f guibg=NONE gui=NONE
 hi rubyInterpolationDelimiter  guifg=NONE guibg=NONE gui=NONE
