@@ -15,5 +15,5 @@ colors
 indent
 .VimballRecord
 .DS_Store
-syntax_checkers/*
+syntax_checkers/**
 undodir/**
