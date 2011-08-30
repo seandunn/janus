@@ -161,6 +161,7 @@ vim_plugin_task "irblack",          "http://github.com/wgibbs/vim-irblack.git"
 vim_plugin_task "delimitMate",      "http://github.com/Raimondi/delimitMate.git"
 vim_plugin_task "vim-textobj-user", "http://github.com/kana/vim-textobj-user.git"
 vim_plugin_task "ruby-text-object", "http://github.com/nelstrom/vim-textobj-rubyblock.git"
+vim_plugin_task "indent-guides",    "http://github.com/nathanaelkane/vim-indent-guides.git"
 vim_plugin_task "Solarized",        "http://github.com/altercation/vim-colors-solarized.git"
 vim_plugin_task "Gundo",            "http://github.com/sjl/gundo.vim.git"
 
