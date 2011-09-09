@@ -25,6 +25,8 @@ noremap l i
 
 
 set mouse=a
+set selectmode-=mouse
+set selectmode-=key
 set mousehide
 
 set number
