@@ -202,6 +202,9 @@ if has("autocmd")
   
 endif
 
+" Use Node.js for JavaScript interpretation
+let $JS_CMD='node'
+
 
 " Ack shortcut...
 map <leader>f y:Ack --literal --ignore-dir=vendor --ignore-dir=script --ignore-dir=log --ignore-dir=data --ignore-dir=doc --ignore-dir=tmp '<C-R>=expand("<cword>")<CR>' .<CR>
@@ -272,8 +275,8 @@ map <F4> :GstatusTab<CR><c-w>=
 " Persistent undo
 set undodir=~/.vim/undodir
 set undofile
-set undolevels=1000 "maximum number of changes that can be undone
-set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+set undolevels=100 "maximum number of changes that can be undone
+set undoreload=100 "maximum number lines to save for undo on a buffer reload
 
 
 map <C-t> :CommandT<CR>
