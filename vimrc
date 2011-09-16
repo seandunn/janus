@@ -142,6 +142,9 @@ set backspace=indent,eol,start
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
 
+" Use skinny indent guides
+let g:indent_guides_guide_size = 1
+
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
 " map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
