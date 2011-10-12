@@ -25,8 +25,7 @@ noremap l i
 
 
 set mouse=a
-set selectmode-=mouse
-set selectmode-=key
+set selectmode=
 set mousehide
 
 set number
@@ -95,12 +94,12 @@ set wildignore+=tmp/**
 map <Leader><Leader> :ZoomWin<CR>
 
 " Taglist
-" let Tlist_Use_Right_Window=1
-" let Tlist_Use_SingleClick=1
-" let Tlist_WinWidth=40
-" let Tlist_Sort_Type = "name"
-" let Tlist_Close_On_Select=1
-" let Tlist_GainFocus_On_ToggleOpen=1
+let Tlist_Use_Right_Window=1
+let Tlist_Use_SingleClick=1
+let Tlist_WinWidth=40
+let Tlist_Sort_Type = "name"
+let Tlist_Close_On_Select=1
+let Tlist_GainFocus_On_ToggleOpen=1
 
 " CTags...
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
@@ -218,11 +217,11 @@ vmap <leader>f y:Ack --literal '<C-R>0'<space>
 imap <C-l> <Space>=><Space>
 
 " Textmate-like Surround stuff...
-vmap " s"
-vmap ' s'
-vmap ( s)
-vmap [ s]
-vmap { s}
+vmap " S"
+vmap ' S'
+vmap ( S)
+vmap [ S]
+vmap { S}
 
 imap <C-.> <C-s><C-e>
 
@@ -309,4 +308,14 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 let macvim_hig_shift_movement = 1
 
 
+" Qargs populates the args list with the files in the quickfix list...
+command! -nargs=0 -bar Qargs execute 'args ' . QuickfixFilenames()
+function! QuickfixFilenames()
+  " Building a hash ensures we get each buffer only once
+  let buffer_numbers = {}
+  for quickfix_item in getqflist()
+    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+  endfor
+  return join(values(buffer_numbers))
+endfunction
 

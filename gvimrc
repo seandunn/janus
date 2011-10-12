@@ -36,8 +36,7 @@ if has("gui_macvim")
 
   " Command-Shift-T for Taglist suport
   macmenu File.Open\ Tab\.\.\. key=<nop>
-  " map <D-T> :TlistToggle<CR>
-  map <D-T> :TagbarOpenAutoClose<CR>
+  map <D-T> :TlistToggle<CR>
 
   " open tabs with command-<tab number>
   map <D-1> :tabn 1<CR>

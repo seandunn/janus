@@ -14,7 +14,7 @@ hi Cursor  guifg=NONE guibg=#0052D5 gui=NONE
 hi Visual  guifg=NONE guibg=#0051d4 gui=NONE
 hi CursorLine  guifg=NONE guibg=#092137 gui=NONE
 hi CursorColumn  guifg=NONE guibg=#092137 gui=NONE
-hi LineNr  guifg=#828282 guibg=#000000 gui=NONE
+hi LineNr  guifg=#3F3F3F guibg=bg gui=NONE
 hi VertSplit  guifg=#393939 guibg=#393939 gui=NONE
 hi MatchParen  guifg=#cda869 guibg=NONE gui=NONE
 hi StatusLine  guifg=#ffffff guibg=#92432E gui=bold
@@ -30,7 +30,7 @@ hi FoldColumn guifg=#828282 guibg=#000000
 
 
 
-hi Normal  guifg=#f8f8f8 guibg=#151515 gui=NONE
+hi Normal  guifg=#f8f8f8 guibg=#202020 gui=NONE
 hi Boolean  guifg=#cf6a4c guibg=NONE gui=NONE
 hi Character  guifg=#cf6a4c guibg=NONE gui=NONE
 hi Comment  guifg=#696969 guibg=NONE gui=italic
