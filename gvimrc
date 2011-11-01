@@ -12,6 +12,8 @@ if has("gui_macvim")
   imap <D-t> <Esc>:CommandT<CR>
   " let g:CommandTAcceptSelectionMap='' 
   " let g:CommandTAcceptSelectionTabMap='<CR>'
+  "
+  set selectmode=
 
   " Command-Shift-F for Ack
   macmenu Window.Toggle\ Full\ Screen\ Mode key=<nop>

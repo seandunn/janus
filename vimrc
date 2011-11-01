@@ -82,7 +82,7 @@ map „ :set nowrap!<CR>
 let mapleader = " "
 
 " NERDTree configuration
-let NERDTreeStatusline="NERDTree"
+let NERDTreeStatusline=split(getcwd(), '/')[-1]
 let NERDTreeIgnore=['\.rbc$', '\~$']
 let NERDTreeMapOpenExpl="E"
 map <Leader>n :NERDTreeToggle<CR>
@@ -100,6 +100,7 @@ let Tlist_WinWidth=40
 let Tlist_Sort_Type = "name"
 let Tlist_Close_On_Select=1
 let Tlist_GainFocus_On_ToggleOpen=1
+let Tlist_Show_One_File=1
 
 " CTags...
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
@@ -217,7 +218,6 @@ vmap <leader>f y:Ack --literal '<C-R>0'<space>
 imap <C-l> <Space>=><Space>
 
 " Textmate-like Surround stuff...
-vmap " S"
 vmap ' S'
 vmap ( S)
 vmap [ S]
