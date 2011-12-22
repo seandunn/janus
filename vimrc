@@ -2,14 +2,14 @@ set nocompatible
 
 " Colemak remapping...
 " Window commands
-noremap <esc>n <C-w>j
-noremap <esc>h <C-w>h
-noremap <esc>e <C-w>k
-noremap <esc>i <C-w>l
-noremap <esc>c <C-w>c
-noremap <esc>v <C-w>v
-noremap <esc>s <C-w>s
-noremap <esc>p <C-w>p
+" noremap <esc>n <C-w>j
+" noremap <esc>h <C-w>h
+" noremap <esc>e <C-w>k
+" noremap <esc>i <C-w>l
+" noremap <esc>c <C-w>c
+" noremap <esc>v <C-w>v
+" noremap <esc>s <C-w>s
+" noremap <esc>p <C-w>p
 map <esc><bs> :bd<cr>
 
 " Home row movement stuff
@@ -28,6 +28,8 @@ set mouse=a
 set selectmode=
 set mousehide
 
+" no beeping!
+set vb t_vb=
 set number
 set ruler
 syntax on
@@ -91,7 +93,7 @@ map <Leader>n :NERDTreeToggle<CR>
 let g:CommandTMaxHeight=20
 set wildignore+=tmp/**
 " ZoomWin configuration
-map <Leader><Leader> :ZoomWin<CR>
+map §§ :ZoomWin<CR>
 
 " Taglist
 let Tlist_Use_Right_Window=1
@@ -239,9 +241,8 @@ imap <C-.> <C-s><C-e>
 " Disable search match highlight
 nmap <silent> <esc><esc> :nohlsearch<cr>
 
-" Remap double \\ to enter EX mode
-imap \\ <esc>:
-map \\ :
+" Remap escape space to enter EX mode
+map <space><esc> :
 
 
 " Alignment

@@ -38,7 +38,7 @@ if has("gui_macvim")
 
   " Command-Shift-T for Taglist suport
   macmenu File.Open\ Tab\.\.\. key=<nop>
-  map <D-T> :TlistToggle<CR>
+  " map <D-T> :TlistToggle<CR>
 
   " open tabs with command-<tab number>
   map <D-1> :tabn 1<CR>
@@ -56,8 +56,8 @@ if has("gui_macvim")
   nmap <D-Enter> <Esc>o
 
 	macmenu &File.Save key=<nop>
-	map <D-s> :w<CR>
-	imap <D-s> <Esc>:w<CR>
+	" map <D-s> :w<CR>
+	" imap <D-s> <Esc>:w<CR>
 endif
 
 " Start without the toolbar

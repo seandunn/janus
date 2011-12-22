@@ -25,7 +25,7 @@ hi IncSearch  guifg=NONE guibg=#b00000 gui=NONE
 hi Search  guifg=NONE guibg=#660D11 gui=NONE
 hi Directory  guifg=#cf6a4c guibg=NONE gui=NONE
 
-hi Folded  guifg=#504c51 guibg=#0c0c0c gui=NONE
+hi Folded  guifg=#504c51 guibg=#000000 gui=NONE
 hi FoldColumn guifg=#828282 guibg=#000000
 
 
