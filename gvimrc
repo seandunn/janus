@@ -74,9 +74,8 @@ if has("autocmd")
 endif
 
 
-" Default gui color scheme
-color sean_tm_twilight
-" color ir_black
+" Default gui color scheme done in .vimrc script...
+
 set guifont=Monaco:h12
 "set guifont=Bitstream\ Vera\ Sans\ Mono:h12
 "set linespace=3

@@ -173,12 +173,13 @@ set modelines=10
 
 " Default color scheme
 set t_Co=256
-if has("gui_macvim")
+if has("gui_running")
   colorscheme sean_tm_twilight
 else
   colorscheme wombat256
 " colorscheme xoria256
 " colorscheme seans_wombat256
+  set clipboard=unnamed
 endif
 
 
@@ -223,7 +224,6 @@ imap <C-l> <Space>=><Space>
 vmap ' S'
 vmap ( S)
 vmap [ S]
-vmap { S}
 
 imap <C-.> <C-s><C-e>
 
