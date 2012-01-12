@@ -10,19 +10,19 @@ endif
 
 let g:colors_name = "sean_tm_twilight"
 
-hi Cursor  guifg=NONE guibg=#0052D5 gui=NONE
+hi Cursor  guifg=#ffffff guibg=#0052D5 gui=NONE
 hi Visual  guifg=NONE guibg=#0051d4 gui=NONE
 hi CursorLine  guifg=NONE guibg=#0B2F4F gui=NONE
 hi CursorColumn  guifg=NONE guibg=#092137 gui=NONE
-hi LineNr  guifg=#3F3F3F guibg=bg gui=NONE
+hi LineNr  guifg=#3F3F3F guibg=bg gui=italic
 hi VertSplit  guifg=#393939 guibg=#393939 gui=NONE
 hi MatchParen  guifg=#cda869 guibg=NONE gui=NONE
-hi StatusLine  guifg=#ffffff guibg=#92432E gui=bold
-hi StatusLineNC  guifg=#f8f8f8 guibg=#393939 gui=NONE
+hi StatusLine  guifg=#ffffff guibg=#92432E gui=italic cterm=italic
+hi StatusLineNC  guifg=#f8f8f8 guibg=#393939 gui=italic
 hi Pmenu  guifg=#9b703f guibg=NONE gui=NONE
 hi PmenuSel  guifg=NONE guibg=#0051d4 gui=NONE
-hi IncSearch  guifg=NONE guibg=#b00000 gui=NONE
-hi Search  guifg=NONE guibg=#660D11 gui=NONE
+hi IncSearch  guifg=NONE guibg=#b00000 gui=italic
+hi Search  guifg=NONE guibg=#660D11 gui=italic
 hi Directory  guifg=#cf6a4c guibg=NONE gui=NONE
 
 hi Folded  guifg=#504c51 guibg=#000000 gui=NONE

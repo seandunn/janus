@@ -76,8 +76,9 @@ endif
 
 " Default gui color scheme done in .vimrc script...
 
-set guifont=Monaco:h12
-"set guifont=Bitstream\ Vera\ Sans\ Mono:h12
+" set guifont=Monaco:h12
+" set guifont=Liberation Mono:h12
+set guifont=Bitstream\ Vera\ Sans\ Mono:h12
 "set linespace=3
 
 " ConqueTerm wrapper

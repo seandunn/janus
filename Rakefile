@@ -124,10 +124,10 @@ vim_plugin_task "abolish.vim",      "http://github.com/tpope/vim-abolish.git"
 vim_plugin_task "ack.vim",          "http://github.com/mileszs/ack.vim.git"
 vim_plugin_task "align",            "http://github.com/tsaleh/vim-align.git"
 vim_plugin_task "BetterCSS",        "http://github.com/vim-scripts/Better-CSS-Syntax-for-Vim.git"
-vim_plugin_task "color-sampler",    "http://www.vim.org/scripts/download_script.php?src_id=12179"
 vim_plugin_task "ctrlp",            "http://github.com/kien/ctrlp.vim.git"
 vim_plugin_task "conque",           "http://conque.googlecode.com/files/conque_1.1.tar.gz"
 vim_plugin_task "css_color",        "http://github.com/vim-scripts/css_color.vim.git"
+vim_plugin_task "ColorV",           "http://github.com/Rykka/ColorV.git"
 vim_plugin_task "csv",              "http://github.com/chrisbra/csv.vim.git"
 vim_plugin_task "cucumber",         "http://github.com/tpope/vim-cucumber.git"
 vim_plugin_task "delimitMate",      "http://github.com/Raimondi/delimitMate.git"
@@ -150,7 +150,6 @@ vim_plugin_task "ruby-text-object", "http://github.com/nelstrom/vim-textobj-ruby
 vim_plugin_task "searchfold",       "http://github.com/vim-scripts/searchfold.vim.git"
 vim_plugin_task "snipmate",         "http://github.com/garbas/vim-snipmate.git"
 vim_plugin_task "snippets",         "http://github.com/honza/snipmate-snippets.git"
-vim_plugin_task "Solarized",        "http://github.com/altercation/vim-colors-solarized.git"
 vim_plugin_task "supertab",         "http://github.com/ervandew/supertab.git"
 vim_plugin_task "surround",         "http://github.com/tpope/vim-surround.git"
 vim_plugin_task "Syntastic",        "http://github.com/scrooloose/syntastic.git"
@@ -163,18 +162,22 @@ vim_plugin_task "vim-addon-utils",  "http://github.com/MarcWeber/vim-addon-mw-ut
 vim_plugin_task "vim-textobj-user", "http://github.com/kana/vim-textobj-user.git"
 vim_plugin_task "vividchalk",       "http://github.com/tpope/vim-vividchalk.git"
 vim_plugin_task "zoomwin",          "http://www.vim.org/scripts/download_script.php?src_id=9865"
+# vim_plugin_task "colorsupport",     "http://www.vim.org/scripts/download_script.php?src_id=14828"
+vim_plugin_task "eddie-colorscheme", "http://github.com/mattsa/vim-eddie.git"
+vim_plugin_task "ruby-refactoring", "http://github.com/ecomba/vim-ruby-refactoring.git"
+vim_plugin_task "matchit",          "http://www.vim.org/scripts/download_script.php?src_id=8196"
 
-vim_plugin_task "command_t",        "http://github.com/wincent/Command-T.git" do
-  sh "find ruby -name '.gitignore' | xargs rm"
-  Dir.chdir "ruby/command-t" do
-    if `rvm > /dev/null 2>&1` && $?.exitstatus == 0
-      sh "rvm system ruby extconf.rb"
-    else
-      sh "/usr/bin/ruby extconf.rb" # assume /usr/bin/ruby is system ruby
-    end
-    sh "make clean && make"
-  end
-end
+# vim_plugin_task "command_t",        "http://github.com/wincent/Command-T.git" do
+#   sh "find ruby -name '.gitignore' | xargs rm"
+#   Dir.chdir "ruby/command-t" do
+#     if `rvm > /dev/null 2>&1` && $?.exitstatus == 0
+#       sh "rvm system ruby extconf.rb"
+#     else
+#       sh "/usr/bin/ruby extconf.rb" # assume /usr/bin/ruby is system ruby
+#     end
+#     sh "make clean && make"
+#   end
+# end
 
 vim_plugin_task "janus_themes" do
   # custom version of railscasts theme

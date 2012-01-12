@@ -1,17 +1,8 @@
 set nocompatible
 
-" Colemak remapping...
-" Window commands
-" noremap <esc>n <C-w>j
-" noremap <esc>h <C-w>h
-" noremap <esc>e <C-w>k
-" noremap <esc>i <C-w>l
-" noremap <esc>c <C-w>c
-" noremap <esc>v <C-w>v
-" noremap <esc>s <C-w>s
-" noremap <esc>p <C-w>p
 map <esc><bs> :bd<cr>
 
+" Colemak remapping...
 " Home row movement stuff
 noremap n gj
 noremap e gk
@@ -35,7 +26,7 @@ set ruler
 syntax on
 
 " Load the matchit plugin
-runtime macros/matchit.vim
+" runtime macros/matchit.vim
 
 " Whitespace stuff
 set wrap
@@ -175,10 +166,10 @@ set modelines=10
 set t_Co=256
 if has("gui_running")
   colorscheme sean_tm_twilight
+  " colorscheme eddie
 else
-  colorscheme wombat256
+ colorscheme eddie
 " colorscheme xoria256
-" colorscheme seans_wombat256
   set clipboard=unnamed
 endif
 
@@ -227,17 +218,6 @@ vmap [ S]
 
 imap <C-.> <C-s><C-e>
 
-" Paste buffer yanking and pasting :)
-" noremap  y "*y
-" noremap  yy "*yy
-" noremap  Y "*Y
-" noremap  p "*p
-" noremap  P "*P
-" vnoremap y "*y
-" vnoremap Y "*Y
-" vnoremap p "*p
-" vnoremap P "*P
-
 " Disable search match highlight
 nmap <silent> <esc><esc> :nohlsearch<cr>
 
@@ -267,13 +247,8 @@ command! -complete=command TabGundo call TabGundo()
 
 nnoremap <F5> :TabGundo<CR><c-w>=
 
-function! GitStatusTab()
-  tab split
-  Gstatus
-endfunction
-
-command! -complete=command GstatusTab call GitStatusTab()
-map <F4> :GstatusTab<CR><c-w>=
+" snipmate trigger
+let g:snips_trigger_key='<c-tab>'
 
 " Persistent undo
 set undodir=~/.vim/undodir
@@ -282,7 +257,11 @@ set undolevels=100 "maximum number of changes that can be undone
 set undoreload=100 "maximum number lines to save for undo on a buffer reload
 
 
-map <C-t> :CommandT<CR>
+" map <C-t> :CommandT<CR>
+let g:ctrlp_map = '<c-t>'
+map <leader>b :CtrlPBuffer<cr>
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_working_path_mode = 2
 
 " Move line highlighting with window focus
 autocmd WinEnter * set cursorline
