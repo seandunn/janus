@@ -62,7 +62,7 @@ hi SpellBad   guisp=red    gui=undercurl guifg=NONE guibg=NONE ctermfg=red cterm
 hi SpellCap   guisp=yellow gui=undercurl guifg=NONE guibg=NONE ctermfg=red ctermbg=NONE term=underline cterm=underline
 hi SpellRare  guisp=blue   gui=undercurl guifg=NONE guibg=NONE ctermfg=red ctermbg=NONE term=underline cterm=underline
 hi SpellLocal guisp=orange gui=undercurl guifg=NONE guibg=NONE ctermfg=red ctermbg=NONE term=underline cterm=underline
-hi rubyClass  guifg=#cda869 guibg=NONE gui=NONE
+hi rubyClass  guifg=#cda869 guibg=NONE gui=bold
 hi rubyFunction  guifg=#9b703f guibg=NONE gui=NONE
 hi rubyInterpolationDelimiter  guifg=NONE guibg=NONE gui=NONE
 hi rubySymbol  guifg=#cf6a4c guibg=NONE gui=NONE
