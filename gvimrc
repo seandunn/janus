@@ -76,10 +76,7 @@ endif
 
 " Default gui color scheme done in .vimrc script...
 
-" set guifont=Monaco:h12
-" set guifont=Liberation Mono:h12
 set guifont=Bitstream\ Vera\ Sans\ Mono:h12
-"set linespace=3
 
 " ConqueTerm wrapper
 function! StartTerm()
@@ -232,9 +229,9 @@ call s:DefineCommand("e", "Edit")
 call s:DefineCommand("mkdir", "Mkdir")
 
 " Include user's local vim config
-if filereadable(expand("~/.gvimrc.local"))
-  source ~/.gvimrc.local
-endif
+" if filereadable(expand("~/.gvimrc.local"))
+"   source ~/.gvimrc.local
+" endif
 
 
 set autoread

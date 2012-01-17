@@ -1,7 +1,5 @@
 set nocompatible
 
-map <esc><bs> :bd<cr>
-
 " Colemak remapping...
 " Home row movement stuff
 noremap n gj
@@ -184,9 +182,9 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
 " Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
+" if filereadable(expand("~/.vimrc.local"))
+"   source ~/.vimrc.local
+" endif
 
 if has("autocmd")
 	" Source the vimrc file after saving it
@@ -211,17 +209,14 @@ vmap <leader>f y:Ack --literal '<C-R>0'<space>
 " Insert HashRockets... :)
 imap <C-l> <Space>=><Space>
 
-" Textmate-like Surround stuff...
-vmap ' S'
-vmap ( S)
-vmap [ S]
-
 imap <C-.> <C-s><C-e>
 
 " Disable search match highlight
 nmap <silent> <esc><esc> :nohlsearch<cr>
 
 " Remap escape space to enter EX mode
+" map <esc><esc> :
+" imap <esc><esc> <esc>:
 map <space><esc> :
 
 
