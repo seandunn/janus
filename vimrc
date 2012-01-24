@@ -82,7 +82,7 @@ map <Leader>n :NERDTreeToggle<CR>
 let g:CommandTMaxHeight=20
 set wildignore+=tmp/**
 " ZoomWin configuration
-map §§ :ZoomWin<CR>
+map ± :ZoomWin<CR>
 
 " Taglist
 let Tlist_Use_Right_Window=1
