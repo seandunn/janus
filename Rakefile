@@ -120,6 +120,7 @@ def vim_plugin_task(name, repo=nil)
   task :default => name
 end
 
+vim_plugin_task "AnsiEsc",          "http://github.com/vim-scripts/AnsiEsc.vim.git"
 vim_plugin_task "abolish.vim",      "http://github.com/tpope/vim-abolish.git"
 vim_plugin_task "ack.vim",          "http://github.com/mileszs/ack.vim.git"
 vim_plugin_task "align",            "http://github.com/tsaleh/vim-align.git"
@@ -161,6 +162,7 @@ vim_plugin_task "tlib",             "http://github.com/tomtom/tlib_vim.git"
 vim_plugin_task "unimpaired",       "http://github.com/tpope/vim-unimpaired.git"
 vim_plugin_task "vim-addon-utils",  "http://github.com/MarcWeber/vim-addon-mw-utils.git"
 vim_plugin_task "vim-textobj-user", "http://github.com/kana/vim-textobj-user.git"
+vim_plugin_task "vim-visual-star",  "http://github.com/nelstrom/vim-visual-star-search.git"
 vim_plugin_task "vividchalk",       "http://github.com/tpope/vim-vividchalk.git"
 vim_plugin_task "zoomwin",          "http://www.vim.org/scripts/download_script.php?src_id=9865"
 # vim_plugin_task "colorsupport",     "http://www.vim.org/scripts/download_script.php?src_id=14828"
