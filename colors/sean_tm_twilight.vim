@@ -19,7 +19,7 @@ hi VertSplit  guifg=#393939 guibg=#393939 gui=NONE
 hi MatchParen  guifg=#cda869 guibg=NONE gui=NONE
 hi StatusLine  guifg=#ffffff guibg=#92432E gui=italic cterm=italic term=italic
 hi StatusLineNC  guifg=#f8f8f8 guibg=#393939 gui=italic
-hi Pmenu  guifg=#9b703f guibg=#1a1a1a  gui=italic
+hi Pmenu  guifg=#9b703f guibg=#000000  gui=italic
 hi PmenuSel  guifg=NONE guibg=#0051d4 gui=italic,bold
 hi IncSearch  guifg=#ffffff guibg=#b00000 gui=italic
 hi Search  guifg=#ffffff guibg=#660D11 gui=italic
@@ -30,7 +30,7 @@ hi FoldColumn guifg=#828282 guibg=#000000
 
 
 
-hi Normal  guifg=#f8f8f8 guibg=#202020 gui=NONE
+hi Normal  guifg=#f5f5f5 guibg=#202020 gui=NONE
 hi Boolean  guifg=#cf6a4c guibg=NONE gui=NONE
 hi Character  guifg=#cf6a4c guibg=NONE gui=NONE
 hi Comment  guifg=#696969 guibg=NONE gui=italic
