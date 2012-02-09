@@ -10,8 +10,8 @@ endif
 
 let g:colors_name = "sean_tm_twilight"
 
-hi Cursor  guifg=#ffffff guibg=#0052D5 gui=NONE
-hi Visual  guifg=NONE guibg=#0051d4 gui=NONE
+hi Cursor  guifg=#ffffff guibg=#0058E6 gui=NONE
+hi Visual  guifg=NONE guibg=#0040A6 gui=bold
 hi CursorLine  guifg=NONE guibg=#0B2F4F gui=NONE
 hi CursorColumn  guifg=NONE guibg=#092137 gui=NONE
 hi LineNr  guifg=#3F3F3F guibg=bg gui=italic,bold
@@ -108,3 +108,4 @@ hi cssClassName  guifg=#9b703f guibg=NONE gui=NONE
 hi cssValueLength  guifg=#cf6a4c guibg=NONE gui=NONE
 hi cssCommonAttr  guifg=#cf6a4c guibg=NONE gui=NONE
 hi cssBraces  guifg=NONE guibg=NONE gui=NONE
+

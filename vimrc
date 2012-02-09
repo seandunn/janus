@@ -33,6 +33,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set list listchars=tab:\ \ ,trail:·
+set virtualedit=block
 
 " Searching
 set hlsearch
@@ -294,3 +295,9 @@ function! QuickfixFilenames()
   return join(values(buffer_numbers))
 endfunction
 
+if exists("vimpager")
+  set nospell
+  if exists("vimpager_ptree") && vimpager_ptree[-2] == 'wman'
+    set ft=man
+  endif
+endif
