@@ -11,7 +11,7 @@ endif
 let g:colors_name = "sean_tm_twilight"
 
 hi Cursor  guifg=#ffffff guibg=#0058E6 gui=NONE
-hi Visual  guifg=NONE guibg=#0040A6 gui=bold
+hi Visual  guifg=NONE guibg=#003B99 gui=bold
 hi CursorLine  guifg=NONE guibg=#0B2F4F gui=NONE
 hi CursorColumn  guifg=NONE guibg=#092137 gui=NONE
 hi LineNr  guifg=#3F3F3F guibg=bg gui=italic,bold
@@ -21,8 +21,8 @@ hi StatusLine  guifg=#ffffff guibg=#92432E gui=italic cterm=italic term=italic
 hi StatusLineNC  guifg=#f8f8f8 guibg=#393939 gui=italic
 hi Pmenu  guifg=#9b703f guibg=#000000  gui=italic
 hi PmenuSel  guifg=NONE guibg=#0051d4 gui=italic,bold
-hi IncSearch  guifg=#ffffff guibg=#b00000 gui=italic
-hi Search  guifg=#ffffff guibg=#660D11 gui=italic
+hi IncSearch  guifg=#ffffff guibg=#b00000 gui=italic,bold
+hi Search  guifg=#ffffff guibg=#660D11 gui=italic,bold
 hi Directory  guifg=#cf6a4c guibg=NONE gui=NONE
 
 hi Folded  guifg=#504c51 guibg=#000000 gui=bold

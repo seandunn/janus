@@ -35,6 +35,9 @@ set expandtab
 set list listchars=tab:\ \ ,trail:·
 set virtualedit=block
 
+" Add symbols that count as part of Keywords...
+set iskeyword+=!,?
+
 " Searching
 set hlsearch
 set incsearch
@@ -44,6 +47,8 @@ set smartcase
 " Tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc
+
+set wildchar=<Tab> wildmenu wildmode=full
 
 " Status bar
 set laststatus=2
@@ -254,10 +259,15 @@ set undoreload=100 "maximum number lines to save for undo on a buffer reload
 
 
 " map <C-t> :CommandT<CR>
-let g:ctrlp_map = '<c-t>'
-map <leader>b :CtrlPBuffer<cr>
-let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_working_path_mode = 2
+" let g:ctrlp_map = '<c-t>'
+" map <leader>b :CtrlPBuffer<cr>
+" let g:ctrlp_match_window_reversed = 0
+" let g:ctrlp_working_path_mode = 2
+map <c-t><c-v> :vert sfind<space>
+map <c-t><c-s> :sfind<space>
+map <c-t><c-t> :tabfind<space>
+map <c-t><space> :find<space>
+map <c-t> :find<space>
 
 " Move line highlighting with window focus
 autocmd WinEnter * set cursorline
@@ -295,9 +305,31 @@ function! QuickfixFilenames()
   return join(values(buffer_numbers))
 endfunction
 
+function! BufferDelete()
+    if &modified
+        echohl ErrorMsg
+        echomsg "No write since last change. Not closing buffer."
+        echohl NONE
+    else
+        let s:total_nr_buffers = len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+
+        if s:total_nr_buffers == 1
+            bdelete
+            echo "Buffer deleted. Created new buffer."
+        else
+            bprevious
+            bdelete #
+            echo "Buffer deleted."
+        endif
+    endif
+endfunction
+command! -nargs=0 -complete=command BufCleaner call BufferDelete()
+map <esc><BS> :silent BufCleaner<cr>
+
 if exists("vimpager")
   set nospell
   if exists("vimpager_ptree") && vimpager_ptree[-2] == 'wman'
     set ft=man
   endif
 endif
+
