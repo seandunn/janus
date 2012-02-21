@@ -22,6 +22,8 @@ set vb t_vb=
 set number
 set ruler
 syntax on
+set synmaxcol=200
+set lazyredraw
 
 " Load the matchit plugin
 " runtime macros/matchit.vim
@@ -53,11 +55,6 @@ set wildchar=<Tab> wildmenu wildmode=full
 " Status bar
 set laststatus=2
 
-" Without setting this, ZoomWin restores windows in a way that causes
-" equalalways behavior to be triggered the next time CommandT is used.
-" This is likely a bludgeon to solve some other issue, but it works
-set noequalalways
-
 " Splits should be created in the same way as every other gui!
 set splitright
 set splitbelow
@@ -65,14 +62,6 @@ set splitbelow
 " When switching to a buffer move the first open window with the buffer
 " in...
 set switchbuf=usetab
-
-" Toggle window wrapping
-" should be alt-shift-W but due to the funny macmeta thing it's „
-" instead
-map „ :set nowrap!<CR>
-" Fix for macmeta remapping the # symbol
-" set macmeta
-"imap ³ #
 
 " Set leader to <space> as it's the only key you have two
 " dedicated digits for!
@@ -208,8 +197,8 @@ let $JS_CMD='node'
 
 
 " Ack shortcut...
-map <leader>f y:Ack --literal --ignore-dir=vendor --ignore-dir=script --ignore-dir=log --ignore-dir=data --ignore-dir=doc --ignore-dir=tmp '<C-R>=expand("<cword>")<CR>' .<CR>
-vmap <leader>f y:Ack --literal '<C-R>0'<space>
+map <leader>f y:Ack --literal '<C-R>=expand("<cword>")<CR>' app/
+vmap <leader>f y:Ack --literal '<C-R>0'<space> app/
 
 
 " Insert HashRockets... :)
@@ -259,15 +248,18 @@ set undoreload=100 "maximum number lines to save for undo on a buffer reload
 
 
 " map <C-t> :CommandT<CR>
-" let g:ctrlp_map = '<c-t>'
-" map <leader>b :CtrlPBuffer<cr>
-" let g:ctrlp_match_window_reversed = 0
-" let g:ctrlp_working_path_mode = 2
-map <c-t><c-v> :vert sfind<space>
-map <c-t><c-s> :sfind<space>
-map <c-t><c-t> :tabfind<space>
-map <c-t><space> :find<space>
-map <c-t> :find<space>
+" let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript']
+
+let g:ctrlp_map = '<c-t>'
+map <leader>b :CtrlPBuffer<cr>
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_working_path_mode = 2
+
+" map <c-t><c-v> :vert sfind<space>
+" map <c-t><c-s> :sfind<space>
+" map <c-t><c-t> :tabfind<space>
+" map <c-t><space> :find<space>
+" map <c-t> :find<space>
 
 " Move line highlighting with window focus
 autocmd WinEnter * set cursorline

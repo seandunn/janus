@@ -22,7 +22,7 @@ hi StatusLineNC  guifg=#f8f8f8 guibg=#393939 gui=italic
 hi Pmenu  guifg=#9b703f guibg=#000000  gui=italic
 hi PmenuSel  guifg=NONE guibg=#0051d4 gui=italic,bold
 hi IncSearch  guifg=#ffffff guibg=#b00000 gui=italic,bold
-hi Search  guifg=#ffffff guibg=#660D11 gui=italic,bold
+hi Search  guifg=#ffffff guibg=#660D11 gui=italic
 hi Directory  guifg=#cf6a4c guibg=NONE gui=NONE
 
 hi Folded  guifg=#504c51 guibg=#000000 gui=bold

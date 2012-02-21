@@ -125,8 +125,7 @@ vim_plugin_task "abolish.vim",      "http://github.com/tpope/vim-abolish.git"
 vim_plugin_task "ack.vim",          "http://github.com/mileszs/ack.vim.git"
 vim_plugin_task "align",            "http://github.com/tsaleh/vim-align.git"
 vim_plugin_task "BetterCSS",        "http://github.com/vim-scripts/Better-CSS-Syntax-for-Vim.git"
-vim_plugin_task "BufferExplorer",   "http://www.vim.org/scripts/download_script.php?src_id=14208"
-# vim_plugin_task "ctrlp",            "http://github.com/kien/ctrlp.vim.git"
+vim_plugin_task "ctrlp",            "http://github.com/kien/ctrlp.vim.git"
 vim_plugin_task "conque",           "http://conque.googlecode.com/files/conque_1.1.tar.gz"
 vim_plugin_task "Faster-css_color", "http://github.com/ap/vim-css-color.git"
 # vim_plugin_task "ColorV",           "http://github.com/Rykka/ColorV.git"
@@ -171,18 +170,6 @@ vim_plugin_task "zoomwin",          "http://www.vim.org/scripts/download_script.
 vim_plugin_task "eddie-colorscheme", "http://github.com/mattsa/vim-eddie.git"
 vim_plugin_task "ruby-refactoring", "http://github.com/ecomba/vim-ruby-refactoring.git"
 vim_plugin_task "matchit",          "http://www.vim.org/scripts/download_script.php?src_id=8196"
-
-# vim_plugin_task "command_t",        "http://github.com/wincent/Command-T.git" do
-#   sh "find ruby -name '.gitignore' | xargs rm"
-#   Dir.chdir "ruby/command-t" do
-#     if `rvm > /dev/null 2>&1` && $?.exitstatus == 0
-#       sh "rvm system ruby extconf.rb"
-#     else
-#       sh "/usr/bin/ruby extconf.rb" # assume /usr/bin/ruby is system ruby
-#     end
-#     sh "make clean && make"
-#   end
-# end
 
 vim_plugin_task "janus_themes" do
   # custom version of railscasts theme
