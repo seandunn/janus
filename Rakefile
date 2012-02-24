@@ -126,9 +126,8 @@ vim_plugin_task "ack.vim",          "http://github.com/mileszs/ack.vim.git"
 vim_plugin_task "align",            "http://github.com/tsaleh/vim-align.git"
 vim_plugin_task "BetterCSS",        "http://github.com/vim-scripts/Better-CSS-Syntax-for-Vim.git"
 vim_plugin_task "ctrlp",            "http://github.com/kien/ctrlp.vim.git"
-vim_plugin_task "conque",           "http://conque.googlecode.com/files/conque_1.1.tar.gz"
 vim_plugin_task "Faster-css_color", "http://github.com/ap/vim-css-color.git"
-# vim_plugin_task "ColorV",           "http://github.com/Rykka/ColorV.git"
+vim_plugin_task "ColorV",           "http://github.com/Rykka/ColorV.git"
 vim_plugin_task "csv",              "http://github.com/chrisbra/csv.vim.git"
 vim_plugin_task "cucumber",         "http://github.com/tpope/vim-cucumber.git"
 vim_plugin_task "delimitMate",      "http://github.com/Raimondi/delimitMate.git"
@@ -139,7 +138,6 @@ vim_plugin_task "Gundo",            "http://github.com/sjl/gundo.vim.git"
 vim_plugin_task "haml",             "http://github.com/tpope/vim-haml.git"
 vim_plugin_task "indent-guides",    "http://github.com/nathanaelkane/vim-indent-guides.git"
 vim_plugin_task "SlimV",            "http://www.vim.org/scripts/download_script.php?src_id=17305"
-vim_plugin_task "irblack",          "http://github.com/wgibbs/vim-irblack.git"
 vim_plugin_task "javascript",       "http://github.com/pangloss/vim-javascript.git"
 vim_plugin_task "taglist-plus",     "http://github.com/int3/vim-taglist-plus.git"
 # vim_plugin_task "jslint",           "http://github.com/hallettj/jslint.vim.git"
@@ -164,44 +162,11 @@ vim_plugin_task "unimpaired",       "http://github.com/tpope/vim-unimpaired.git"
 vim_plugin_task "vim-addon-utils",  "http://github.com/MarcWeber/vim-addon-mw-utils.git"
 vim_plugin_task "vim-textobj-user", "http://github.com/kana/vim-textobj-user.git"
 vim_plugin_task "vim-visual-star",  "http://github.com/nelstrom/vim-visual-star-search.git"
-vim_plugin_task "vividchalk",       "http://github.com/tpope/vim-vividchalk.git"
 vim_plugin_task "zoomwin",          "http://www.vim.org/scripts/download_script.php?src_id=9865"
 # vim_plugin_task "colorsupport",     "http://www.vim.org/scripts/download_script.php?src_id=14828"
 vim_plugin_task "eddie-colorscheme", "http://github.com/mattsa/vim-eddie.git"
 vim_plugin_task "ruby-refactoring", "http://github.com/ecomba/vim-ruby-refactoring.git"
 vim_plugin_task "matchit",          "http://www.vim.org/scripts/download_script.php?src_id=8196"
-
-vim_plugin_task "janus_themes" do
-  # custom version of railscasts theme
-  File.open(File.expand_path("../colors/railscasts+.vim", __FILE__), "w") do |file|
-    file.puts <<-VIM.gsub(/^ +/, "").gsub("<SP>", " ")
-      runtime colors/railscasts.vim
-      let g:colors_name = "railscasts+"
-
-      set fillchars=vert:\\<SP>
-      set fillchars=stl:\\<SP>
-      set fillchars=stlnc:\\<SP>
-      hi  StatusLine guibg=#cccccc guifg=#000000
-      hi  VertSplit  guibg=#dddddd
-    VIM
-  end
-
-  # custom version of jellybeans theme
-  File.open(File.expand_path("../colors/jellybeans+.vim", __FILE__), "w") do |file|
-    file.puts <<-VIM.gsub(/^      /, "")
-      runtime colors/jellybeans.vim
-      let g:colors_name = "jellybeans+"
-
-      hi  VertSplit    guibg=#888888
-      hi  StatusLine   guibg=#cccccc guifg=#000000
-      hi  StatusLineNC guibg=#888888 guifg=#000000
-    VIM
-  end
-end
-
-vim_plugin_task "molokai" do
-  sh "curl http://www.vim.org/scripts/download_script.php?src_id=9750 > colors/molokai.vim"
-end
 
 vim_plugin_task "mustasche" do
   sh "curl http://github.com/defunkt/mustache/raw/master/contrib/mustache.vim > syntax/mustache.vim"

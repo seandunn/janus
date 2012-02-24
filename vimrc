@@ -38,7 +38,7 @@ set list listchars=tab:\ \ ,trail:·
 set virtualedit=block
 
 " Add symbols that count as part of Keywords...
-set iskeyword+=!,?
+set iskeyword+=!,?,@
 
 " Searching
 set hlsearch
@@ -78,6 +78,9 @@ let g:CommandTMaxHeight=20
 set wildignore+=tmp/**
 " ZoomWin configuration
 map ± :ZoomWin<CR>
+
+" Stop ballooneval turning on in plugins!
+let g:netrw_nobeval=1
 
 " Taglist
 let Tlist_Use_Right_Window=1
@@ -161,7 +164,7 @@ if has("gui_running")
   colorscheme sean_tm_twilight
   " colorscheme eddie
 else
- colorscheme eddie
+  colorscheme sean_tm_twilight_console
 " colorscheme xoria256
   set clipboard=unnamed
 endif
@@ -322,6 +325,7 @@ if exists("vimpager")
   set nospell
   if exists("vimpager_ptree") && vimpager_ptree[-2] == 'wman'
     set ft=man
+    set scrolloff=999
   endif
 endif
 
