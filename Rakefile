@@ -124,10 +124,10 @@ vim_plugin_task "AnsiEsc",          "http://github.com/vim-scripts/AnsiEsc.vim.g
 vim_plugin_task "abolish.vim",      "http://github.com/tpope/vim-abolish.git"
 vim_plugin_task "ack.vim",          "http://github.com/mileszs/ack.vim.git"
 vim_plugin_task "align",            "http://github.com/tsaleh/vim-align.git"
-vim_plugin_task "BetterCSS",        "http://github.com/vim-scripts/Better-CSS-Syntax-for-Vim.git"
+# vim_plugin_task "BetterCSS",        "http://github.com/vim-scripts/Better-CSS-Syntax-for-Vim.git"
 vim_plugin_task "ctrlp",            "http://github.com/kien/ctrlp.vim.git"
-vim_plugin_task "Faster-css_color", "http://github.com/ap/vim-css-color.git"
-vim_plugin_task "ColorV",           "http://github.com/Rykka/ColorV.git"
+# vim_plugin_task "Faster-css_color", "http://github.com/ap/vim-css-color.git"
+# vim_plugin_task "ColorV",           "http://github.com/Rykka/ColorV.git"
 vim_plugin_task "csv",              "http://github.com/chrisbra/csv.vim.git"
 vim_plugin_task "cucumber",         "http://github.com/tpope/vim-cucumber.git"
 vim_plugin_task "delimitMate",      "http://github.com/Raimondi/delimitMate.git"
@@ -137,7 +137,7 @@ vim_plugin_task "gitv",             "http://github.com/gregsexton/gitv.git"
 vim_plugin_task "Gundo",            "http://github.com/sjl/gundo.vim.git"
 vim_plugin_task "haml",             "http://github.com/tpope/vim-haml.git"
 vim_plugin_task "indent-guides",    "http://github.com/nathanaelkane/vim-indent-guides.git"
-vim_plugin_task "SlimV",            "http://www.vim.org/scripts/download_script.php?src_id=17305"
+# vim_plugin_task "SlimV",            "http://www.vim.org/scripts/download_script.php?src_id=17305"
 vim_plugin_task "javascript",       "http://github.com/pangloss/vim-javascript.git"
 vim_plugin_task "taglist-plus",     "http://github.com/int3/vim-taglist-plus.git"
 # vim_plugin_task "jslint",           "http://github.com/hallettj/jslint.vim.git"
@@ -165,12 +165,12 @@ vim_plugin_task "vim-visual-star",  "http://github.com/nelstrom/vim-visual-star-
 vim_plugin_task "zoomwin",          "http://www.vim.org/scripts/download_script.php?src_id=9865"
 # vim_plugin_task "colorsupport",     "http://www.vim.org/scripts/download_script.php?src_id=14828"
 vim_plugin_task "eddie-colorscheme", "http://github.com/mattsa/vim-eddie.git"
-vim_plugin_task "ruby-refactoring", "http://github.com/ecomba/vim-ruby-refactoring.git"
+# vim_plugin_task "ruby-refactoring", "http://github.com/ecomba/vim-ruby-refactoring.git"
 vim_plugin_task "matchit",          "http://www.vim.org/scripts/download_script.php?src_id=8196"
 
-vim_plugin_task "mustasche" do
-  sh "curl http://github.com/defunkt/mustache/raw/master/contrib/mustache.vim > syntax/mustache.vim"
-end
+# vim_plugin_task "mustasche" do
+#   sh "curl http://github.com/defunkt/mustache/raw/master/contrib/mustache.vim > syntax/mustache.vim"
+# end
 
 desc "Update the documentation"
 task :update_docs do

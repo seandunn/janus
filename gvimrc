@@ -40,6 +40,12 @@ if has("gui_macvim")
   macmenu File.Open\ Tab\.\.\. key=<nop>
   " map <D-T> :TlistToggle<CR>
 
+  " delimitMate fixes
+  imap <M-Left> <Plug>delimitMateC-Left
+  imap <M-Right> <Plug>delimitMateC-Right
+  imap <D-Left> <Plug>delimitMateHome
+  imap <D-Right> <Plug>delimitMateEnd
+
   " open tabs with command-<tab number>
   map <D-1> :tabn 1<CR>
   map <D-2> :tabn 2<CR>

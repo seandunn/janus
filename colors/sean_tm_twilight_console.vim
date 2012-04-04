@@ -59,7 +59,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
   CSAHi   Search                         term=reverse          cterm=NONE             ctermbg=52    ctermfg=231   gui=italic                guibg=#660D11        guifg=#ffffff
   CSAHi   MoreMsg                        term=bold             cterm=bold             ctermbg=bg    ctermfg=29    gui=bold                  guibg=bg             guifg=SeaGreen
   CSAHi   ModeMsg                        term=bold             cterm=bold             ctermbg=bg    ctermfg=fg    gui=bold                  guibg=bg             guifg=fg
-  CSAHi   LineNr                         term=underline        cterm=bold             ctermbg=234   ctermfg=237   gui=bold,italic           guibg=bg             guifg=#3F3F3F
+  CSAHi   LineNr                         term=underline        cterm=bold             ctermbg=234   ctermfg=242   gui=bold,italic           guibg=bg             guifg=#3F3F3F
   CSAHi   IndentGuidesEven               term=NONE             cterm=NONE             ctermbg=bg    ctermfg=fg    gui=NONE                  guibg=bg             guifg=fg
   CSAHi   rubyRepeat                     term=NONE             cterm=NONE             ctermbg=bg    ctermfg=fg    gui=NONE                  guibg=bg             guifg=fg
   CSAHi   rubyFunction                   term=NONE             cterm=NONE             ctermbg=bg    ctermfg=95    gui=NONE                  guibg=bg             guifg=#9b703f

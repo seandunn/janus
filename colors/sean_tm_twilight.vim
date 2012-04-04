@@ -109,3 +109,8 @@ hi cssValueLength  guifg=#cf6a4c guibg=NONE gui=NONE
 hi cssCommonAttr  guifg=#cf6a4c guibg=NONE gui=NONE
 hi cssBraces  guifg=NONE guibg=NONE gui=NONE
 
+" vimdiff color scheme
+highlight DiffChange cterm=none ctermfg=black ctermbg=DarkGreen gui=none guibg=#003300
+highlight DiffAdd cterm=none ctermfg=black ctermbg=DarkGreen gui=italic,bold guibg=#003300
+highlight DiffText cterm=none ctermfg=black ctermbg=DarkRed gui=italic,bold guibg=#003300
+highlight DiffDelete cterm=none ctermfg=black ctermbg=DarkRed gui=bold,italic guifg=black guibg=#440000

@@ -2,16 +2,20 @@ set nocompatible
 
 " Colemak remapping...
 " Home row movement stuff
-noremap n gj
-noremap e gk
-noremap k n
-noremap K N
+" noremap n gj
+" noremap e gk
+" noremap k n
+" noremap K N
+" 
+" noremap j e
+" 
+" noremap i l
+" noremap l i
+" 
 
-noremap j e
 
-noremap i l
-noremap l i
-
+noremap j gj
+noremap k gk
 
 set mouse=a
 set selectmode=
@@ -241,7 +245,7 @@ command! -complete=command TabGundo call TabGundo()
 nnoremap <F5> :TabGundo<CR><c-w>=
 
 " snipmate trigger
-let g:snips_trigger_key='<c-tab>'
+" let g:snips_trigger_key='<c-tab>'
 
 " Persistent undo
 set undodir=~/.vim/undodir
@@ -322,6 +326,7 @@ command! -nargs=0 -complete=command BufCleaner call BufferDelete()
 map <esc><BS> :silent BufCleaner<cr>
 
 if exists("vimpager")
+
   set nospell
   if exists("vimpager_ptree") && vimpager_ptree[-2] == 'wman'
     set ft=man
