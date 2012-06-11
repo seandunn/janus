@@ -22,19 +22,6 @@ if has("gui_macvim")
   " Command-e for ConqueTerm
   map <D-e> :call StartTerm()<CR>
 
-  " Command-/ to toggle comments
-  " map <D-/> <plug>NERDCommenterToggle<CR>
-  " imap <D-/> <C-o><plug>NERDCommenterToggle<CR>
-
-  " bind command-] to indent right
-  nmap <D-]> >>
-  vmap <D-]> >gv
-  imap <D-]> <C-O>>>
-
-  " bind command-[ to indent left
-  nmap <D-[> <<
-  vmap <D-[> <gv
-  imap <D-[> <C-O><<
 
   " Command-Shift-T for Taglist suport
   macmenu File.Open\ Tab\.\.\. key=<nop>
@@ -57,10 +44,6 @@ if has("gui_macvim")
   map <D-8> :tabn 8<CR>
   map <D-9> :tabn 9<CR>
 
-  " Replicate TextMate Cmd-Return
-  imap <D-Enter> <Esc>o
-  nmap <D-Enter> <Esc>o
-
 	macmenu &File.Save key=<nop>
 	" map <D-s> :w<CR>
 	" imap <D-s> <Esc>:w<CR>
@@ -82,7 +65,8 @@ endif
 
 " Default gui color scheme done in .vimrc script...
 
-set guifont=Bitstream\ Vera\ Sans\ Mono:h12
+" set guifont=Bitstream\ Vera\ Sans\ Mono:h12
+set guifont=Menlo:h12
 
 " ConqueTerm wrapper
 function! StartTerm()

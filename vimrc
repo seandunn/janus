@@ -60,12 +60,13 @@ set wildchar=<Tab> wildmenu wildmode=full
 set laststatus=2
 
 " Splits should be created in the same way as every other gui!
+set fillchars=diff:⣿,vert:│
 set splitright
 set splitbelow
 
 " When switching to a buffer move the first open window with the buffer
 " in...
-set switchbuf=usetab
+set switchbuf=useopen
 
 " Set leader to <space> as it's the only key you have two
 " dedicated digits for!
@@ -164,13 +165,14 @@ set modelines=10
 
 " Default color scheme
 set t_Co=256
+let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
 if has("gui_running")
   colorscheme sean_tm_twilight
   " colorscheme eddie
 else
   colorscheme sean_tm_twilight_console
 " colorscheme xoria256
-  set clipboard=unnamed
+  " set clipboard=unnamed
 endif
 
 
@@ -204,8 +206,8 @@ let $JS_CMD='node'
 
 
 " Ack shortcut...
-map <leader>f y:Ack --literal '<C-R>=expand("<cword>")<CR>' app/
-vmap <leader>f y:Ack --literal '<C-R>0'<space> app/
+map <leader>f y:tab Ack --literal '<C-R>=expand("<cword>")<CR>' app/
+vmap <leader>f y:tab Ack --literal '<C-R>0'<space> app/
 
 
 " Insert HashRockets... :)
@@ -225,7 +227,7 @@ map <space><esc> :
 " Alignment
 map <Leader>l :Align<Space>
 
-set statusline+=set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set statusline+=set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P\ \ %{strftime(\"%H:%M\")}
 
 setlocal spell spelllang=en_gb
 
@@ -286,8 +288,10 @@ function! TabMessage(cmd)
 endfunction
 command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
 
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+" Change the cursor on insert
+" Not needed with vitality!
+" let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+" let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1

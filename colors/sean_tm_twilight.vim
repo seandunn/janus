@@ -15,7 +15,7 @@ hi Visual  guifg=NONE guibg=#003B99 gui=bold
 hi CursorLine  guifg=NONE guibg=#0B2F4F gui=NONE
 hi CursorColumn  guifg=NONE guibg=#092137 gui=NONE
 hi LineNr  guifg=#3F3F3F guibg=bg gui=italic,bold
-hi VertSplit  guifg=#393939 guibg=#393939 gui=NONE
+hi VertSplit  guifg=#777777 guibg=#191919 gui=NONE
 hi MatchParen  guifg=#cda869 guibg=NONE gui=NONE
 hi StatusLine  guifg=#ffffff guibg=#92432E gui=italic cterm=italic term=italic
 hi StatusLineNC  guifg=#f8f8f8 guibg=#393939 gui=italic

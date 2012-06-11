@@ -86,7 +86,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
   CSAHi   TabLineSel                     term=bold             cterm=bold             ctermbg=bg    ctermfg=fg    gui=bold                  guibg=bg             guifg=fg
   CSAHi   TabLineFill                    term=reverse          cterm=NONE             ctermbg=255   ctermfg=234   gui=reverse               guibg=bg             guifg=fg
   CSAHi   CursorColumn                   term=reverse          cterm=NONE             ctermbg=12    ctermfg=fg    gui=NONE                  guibg=#092137        guifg=fg
-  CSAHi   CursorLine                     term=underline        cterm=NONE             ctermbg=12    ctermfg=fg    gui=NONE                  guibg=#0B2F4F        guifg=fg
+  CSAHi   CursorLine                     term=underline        cterm=NONE             ctermbg=0    ctermfg=NONE    gui=NONE                  guibg=#0B2F4F        guifg=NONE
   CSAHi   yamlAnchor                     term=NONE             cterm=NONE             ctermbg=bg    ctermfg=103   gui=NONE                  guibg=bg             guifg=#7587a6
   CSAHi   cssClassName                   term=NONE             cterm=NONE             ctermbg=bg    ctermfg=95    gui=NONE                  guibg=bg             guifg=#9b703f
   CSAHi   yamlDocumentHeader             term=NONE             cterm=NONE             ctermbg=bg    ctermfg=107   gui=NONE                  guibg=bg             guifg=#8f9d6a
@@ -115,11 +115,11 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
   CSAHi   Operator                       term=NONE             cterm=NONE             ctermbg=bg    ctermfg=179   gui=NONE                  guibg=bg             guifg=#cda869
   CSAHi   Keyword                        term=NONE             cterm=NONE             ctermbg=bg    ctermfg=179   gui=NONE                  guibg=bg             guifg=#cda869
   CSAHi   Question                       term=NONE             cterm=bold             ctermbg=bg    ctermfg=29    gui=bold                  guibg=bg             guifg=SeaGreen
-  CSAHi   StatusLine                     term=italic           cterm=NONE             ctermbg=237    ctermfg=231   gui=italic                guibg=#92432E        guifg=#ffffff
+  CSAHi   StatusLine                     term=italic,bold           cterm=bold             ctermbg=237    ctermfg=231   gui=italic                guibg=#92432E        guifg=#ffffff
   CSAHi   StatusLineNC                   term=reverse          cterm=NONE             ctermbg=237   ctermfg=231   gui=italic                guibg=#393939        guifg=#f8f8f8
   CSAHi   VertSplit                      term=reverse          cterm=NONE             ctermbg=237   ctermfg=237   gui=NONE                  guibg=#393939        guifg=#393939
   CSAHi   Title                          term=bold             cterm=bold             ctermbg=bg    ctermfg=231   gui=bold                  guibg=bg             guifg=#f8f8f8
-  CSAHi   Visual                         term=reverse          cterm=NONE             ctermbg=26    ctermfg=fg    gui=NONE                  guibg=#0051d4        guifg=fg
+  CSAHi   Visual                         term=reverse          cterm=NONE             ctermbg=26    ctermfg=fg    gui=NONE                  guibg=#0051d4        guifg=NONE
   CSAHi   VisualNOS                      term=bold,underline   cterm=bold,underline   ctermbg=bg    ctermfg=fg    gui=bold,underline        guibg=bg             guifg=fg
   CSAHi   WarningMsg                     term=NONE             cterm=NONE             ctermbg=bg    ctermfg=fg    gui=NONE                  guibg=bg             guifg=fg
   CSAHi   WildMenu                       term=NONE             cterm=NONE             ctermbg=226   ctermfg=16    gui=NONE                  guibg=Yellow         guifg=Black
@@ -253,7 +253,7 @@ elseif   has("gui_running")   ||   (&t_Co   ==      256                         
   CSAHi   TabLineSel                     term=bold             cterm=bold             ctermbg=bg    ctermfg=fg    gui=bold                  guibg=bg             guifg=fg
   CSAHi   TabLineFill                    term=reverse          cterm=NONE             ctermbg=255   ctermfg=234   gui=reverse               guibg=bg             guifg=fg
   CSAHi   CursorColumn                   term=reverse          cterm=NONE             ctermbg=12    ctermfg=fg    gui=NONE                  guibg=#092137        guifg=fg
-  CSAHi   CursorLine                     term=underline        cterm=NONE             ctermbg=12    ctermfg=fg    gui=NONE                  guibg=#0B2F4F        guifg=fg
+  CSAHi   CursorLine                     term=underline        cterm=NONE             ctermbg=0    ctermfg=NONE    gui=NONE                  guibg=#0B2F4F        guifg=NONE
   CSAHi   yamlAnchor                     term=NONE             cterm=NONE             ctermbg=bg    ctermfg=103   gui=NONE                  guibg=bg             guifg=#7587a6
   CSAHi   cssClassName                   term=NONE             cterm=NONE             ctermbg=bg    ctermfg=95    gui=NONE                  guibg=bg             guifg=#9b703f
   CSAHi   yamlDocumentHeader             term=NONE             cterm=NONE             ctermbg=bg    ctermfg=107   gui=NONE                  guibg=bg             guifg=#8f9d6a
@@ -282,11 +282,11 @@ elseif   has("gui_running")   ||   (&t_Co   ==      256                         
   CSAHi   Operator                       term=NONE             cterm=NONE             ctermbg=bg    ctermfg=179   gui=NONE                  guibg=bg             guifg=#cda869
   CSAHi   Keyword                        term=NONE             cterm=NONE             ctermbg=bg    ctermfg=179   gui=NONE                  guibg=bg             guifg=#cda869
   CSAHi   Question                       term=NONE             cterm=bold             ctermbg=bg    ctermfg=29    gui=bold                  guibg=bg             guifg=SeaGreen
-  CSAHi   StatusLine                     term=italic           cterm=NONE             ctermbg=237    ctermfg=231   gui=italic                guibg=#92432E        guifg=#ffffff
+  CSAHi   StatusLine                     term=italic,bold           cterm=bold             ctermbg=237    ctermfg=231   gui=italic                guibg=#92432E        guifg=#ffffff
   CSAHi   StatusLineNC                   term=reverse          cterm=NONE             ctermbg=237   ctermfg=231   gui=italic                guibg=#393939        guifg=#f8f8f8
   CSAHi   VertSplit                      term=reverse          cterm=NONE             ctermbg=237   ctermfg=237   gui=NONE                  guibg=#393939        guifg=#393939
   CSAHi   Title                          term=bold             cterm=bold             ctermbg=bg    ctermfg=231   gui=bold                  guibg=bg             guifg=#f8f8f8
-  CSAHi   Visual                         term=reverse          cterm=NONE             ctermbg=26    ctermfg=fg    gui=NONE                  guibg=#0051d4        guifg=fg
+  CSAHi   Visual                         term=reverse          cterm=NONE             ctermbg=26    ctermfg=fg    gui=NONE                  guibg=#0051d4        guifg=NONE
   CSAHi   VisualNOS                      term=bold,underline   cterm=bold,underline   ctermbg=bg    ctermfg=fg    gui=bold,underline        guibg=bg             guifg=fg
   CSAHi   WarningMsg                     term=NONE             cterm=NONE             ctermbg=bg    ctermfg=fg    gui=NONE                  guibg=bg             guifg=fg
   CSAHi   WildMenu                       term=NONE             cterm=NONE             ctermbg=226   ctermfg=16    gui=NONE                  guibg=Yellow         guifg=Black
@@ -420,7 +420,7 @@ elseif   has("gui_running")   ||   &t_Co    ==      256
   CSAHi   TabLineSel                     term=bold             cterm=bold             ctermbg=bg    ctermfg=fg    gui=bold                  guibg=bg             guifg=fg
   CSAHi   TabLineFill                    term=reverse          cterm=NONE             ctermbg=255   ctermfg=234   gui=reverse               guibg=bg             guifg=fg
   CSAHi   CursorColumn                   term=reverse          cterm=NONE             ctermbg=12    ctermfg=fg    gui=NONE                  guibg=#092137        guifg=fg
-  CSAHi   CursorLine                     term=underline        cterm=NONE             ctermbg=12    ctermfg=fg    gui=NONE                  guibg=#0B2F4F        guifg=fg
+  CSAHi   CursorLine                     term=underline        cterm=NONE             ctermbg=0    ctermfg=NONE    gui=NONE                  guibg=#0B2F4F        guifg=NONE
   CSAHi   yamlAnchor                     term=NONE             cterm=NONE             ctermbg=bg    ctermfg=103   gui=NONE                  guibg=bg             guifg=#7587a6
   CSAHi   cssClassName                   term=NONE             cterm=NONE             ctermbg=bg    ctermfg=95    gui=NONE                  guibg=bg             guifg=#9b703f
   CSAHi   yamlDocumentHeader             term=NONE             cterm=NONE             ctermbg=bg    ctermfg=107   gui=NONE                  guibg=bg             guifg=#8f9d6a
@@ -449,11 +449,11 @@ elseif   has("gui_running")   ||   &t_Co    ==      256
   CSAHi   Operator                       term=NONE             cterm=NONE             ctermbg=bg    ctermfg=179   gui=NONE                  guibg=bg             guifg=#cda869
   CSAHi   Keyword                        term=NONE             cterm=NONE             ctermbg=bg    ctermfg=179   gui=NONE                  guibg=bg             guifg=#cda869
   CSAHi   Question                       term=NONE             cterm=bold             ctermbg=bg    ctermfg=29    gui=bold                  guibg=bg             guifg=SeaGreen
-  CSAHi   StatusLine                     term=italic           cterm=NONE             ctermbg=237    ctermfg=231   gui=italic                guibg=#92432E        guifg=#ffffff
+  CSAHi   StatusLine                     term=italic,bold           cterm=bold             ctermbg=237    ctermfg=231   gui=italic                guibg=#92432E        guifg=#ffffff
   CSAHi   StatusLineNC                   term=reverse          cterm=NONE             ctermbg=237   ctermfg=231   gui=italic                guibg=#393939        guifg=#f8f8f8
   CSAHi   VertSplit                      term=reverse          cterm=NONE             ctermbg=237   ctermfg=237   gui=NONE                  guibg=#393939        guifg=#393939
   CSAHi   Title                          term=bold             cterm=bold             ctermbg=bg    ctermfg=231   gui=bold                  guibg=bg             guifg=#f8f8f8
-  CSAHi   Visual                         term=reverse          cterm=NONE             ctermbg=26    ctermfg=fg    gui=NONE                  guibg=#0051d4        guifg=fg
+  CSAHi   Visual                         term=reverse          cterm=NONE             ctermbg=26    ctermfg=fg    gui=NONE                  guibg=#0051d4        guifg=NONE
   CSAHi   VisualNOS                      term=bold,underline   cterm=bold,underline   ctermbg=bg    ctermfg=fg    gui=bold,underline        guibg=bg             guifg=fg
   CSAHi   WarningMsg                     term=NONE             cterm=NONE             ctermbg=bg    ctermfg=fg    gui=NONE                  guibg=bg             guifg=fg
   CSAHi   WildMenu                       term=NONE             cterm=NONE             ctermbg=226   ctermfg=16    gui=NONE                  guibg=Yellow         guifg=Black
@@ -587,7 +587,7 @@ elseif has("gui_running") || &t_Co == 88
   CSAHi   TabLineSel                     term=bold             cterm=bold             ctermbg=bg    ctermfg=fg    gui=bold                  guibg=bg             guifg=fg
   CSAHi   TabLineFill                    term=reverse          cterm=NONE             ctermbg=79    ctermfg=80    gui=reverse               guibg=bg             guifg=fg
   CSAHi   CursorColumn                   term=reverse          cterm=NONE             ctermbg=16    ctermfg=fg    gui=NONE                  guibg=#092137        guifg=fg
-  CSAHi   CursorLine                     term=underline        cterm=NONE             ctermbg=12    ctermfg=fg    gui=NONE                  guibg=#0B2F4F        guifg=fg
+  CSAHi   CursorLine                     term=underline        cterm=NONE             ctermbg=0    ctermfg=NONE    gui=NONE                  guibg=#0B2F4F        guifg=NONE
   CSAHi   yamlAnchor                     term=NONE             cterm=NONE             ctermbg=bg    ctermfg=37    gui=NONE                  guibg=bg             guifg=#7587a6
   CSAHi   cssClassName                   term=NONE             cterm=NONE             ctermbg=bg    ctermfg=36    gui=NONE                  guibg=bg             guifg=#9b703f
   CSAHi   yamlDocumentHeader             term=NONE             cterm=NONE             ctermbg=bg    ctermfg=37    gui=NONE                  guibg=bg             guifg=#8f9d6a
@@ -616,11 +616,11 @@ elseif has("gui_running") || &t_Co == 88
   CSAHi   Operator                       term=NONE             cterm=NONE             ctermbg=bg    ctermfg=53    gui=NONE                  guibg=bg             guifg=#cda869
   CSAHi   Keyword                        term=NONE             cterm=NONE             ctermbg=bg    ctermfg=53    gui=NONE                  guibg=bg             guifg=#cda869
   CSAHi   Question                       term=NONE             cterm=bold             ctermbg=bg    ctermfg=21    gui=bold                  guibg=bg             guifg=SeaGreen
-  CSAHi   StatusLine                     term=italic           cterm=NONE             ctermbg=237    ctermfg=79    gui=italic                guibg=#92432E        guifg=#ffffff
+  CSAHi   StatusLine                     term=italic,bold           cterm=bold             ctermbg=237    ctermfg=79    gui=italic                guibg=#92432E        guifg=#ffffff
   CSAHi   StatusLineNC                   term=reverse          cterm=NONE             ctermbg=237    ctermfg=79    gui=italic                guibg=#393939        guifg=#f8f8f8
   CSAHi   VertSplit                      term=reverse          cterm=NONE             ctermbg=80    ctermfg=80    gui=NONE                  guibg=#393939        guifg=#393939
   CSAHi   Title                          term=bold             cterm=bold             ctermbg=bg    ctermfg=79    gui=bold                  guibg=bg             guifg=#f8f8f8
-  CSAHi   Visual                         term=reverse          cterm=NONE             ctermbg=22    ctermfg=fg    gui=NONE                  guibg=#0051d4        guifg=fg
+  CSAHi   Visual                         term=reverse          cterm=NONE             ctermbg=22    ctermfg=fg    gui=NONE                  guibg=#0051d4        guifg=NONE
   CSAHi   VisualNOS                      term=bold,underline   cterm=bold,underline   ctermbg=bg    ctermfg=fg    gui=bold,underline        guibg=bg             guifg=fg
   CSAHi   WarningMsg                     term=NONE             cterm=NONE             ctermbg=bg    ctermfg=fg    gui=NONE                  guibg=bg             guifg=fg
   CSAHi   WildMenu                       term=NONE             cterm=NONE             ctermbg=76    ctermfg=16    gui=NONE                  guibg=Yellow         guifg=Black
