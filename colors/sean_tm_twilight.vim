@@ -14,8 +14,8 @@ hi Cursor  guifg=#ffffff guibg=#0058E6 gui=NONE
 hi Visual  guifg=NONE guibg=#003B99 gui=bold
 hi CursorLine  guifg=NONE guibg=#0B2F4F gui=NONE
 hi CursorColumn  guifg=NONE guibg=#092137 gui=NONE
-hi LineNr  guifg=#3F3F3F guibg=bg gui=italic,bold
-hi VertSplit  guifg=#777777 guibg=#191919 gui=NONE
+hi LineNr  guifg=#3F3F3F guibg=#1b1b1b gui=italic,bold
+hi VertSplit  guifg=#393939 guibg=#1b1b1b gui=NONE
 hi MatchParen  guifg=#cda869 guibg=NONE gui=NONE
 hi StatusLine  guifg=#ffffff guibg=#92432E gui=italic cterm=italic term=italic
 hi StatusLineNC  guifg=#f8f8f8 guibg=#393939 gui=italic
@@ -30,7 +30,7 @@ hi FoldColumn guifg=#828282 guibg=#000000
 
 
 
-hi Normal  guifg=#f5f5f5 guibg=#202020 gui=NONE
+hi Normal  guifg=#f5f5f5 guibg=#151515 gui=NONE
 hi Boolean  guifg=#cf6a4c guibg=NONE gui=NONE
 hi Character  guifg=#cf6a4c guibg=NONE gui=NONE
 hi Comment  guifg=#696969 guibg=NONE gui=italic
@@ -44,7 +44,7 @@ hi Function  guifg=#9b703f guibg=NONE gui=NONE
 hi Identifier  guifg=#f9ee98 guibg=NONE gui=NONE
 hi Keyword  guifg=#cda869 guibg=NONE gui=NONE
 hi Label  guifg=#8f9d6a guibg=NONE gui=NONE
-hi NonText  guifg=bg guibg=bg gui=NONE
+hi NonText  guifg=#1b1b1b guibg=#1b1b1b gui=NONE
 hi Number  guifg=#cf6a4c guibg=NONE gui=NONE
 hi Operator  guifg=#cda869 guibg=NONE gui=NONE
 hi PreProc  guifg=#cda869 guibg=NONE gui=NONE

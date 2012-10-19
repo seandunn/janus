@@ -25,7 +25,7 @@ set mousehide
 set vb t_vb=
 set number
 set ruler
-syntax on
+syntax enable
 set synmaxcol=200
 set lazyredraw
 
@@ -99,7 +99,7 @@ let Tlist_Show_One_File=1
 " CTags...
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 " Open tag
-map <leader>o :exec("tag ".expand("<cword>"))<CR>
+" map <leader>o :exec("tag ".expand("<cword>"))<CR>
 " map <leader>o :tj<CR>
 
 " Remember last location in file
@@ -149,7 +149,7 @@ let g:indent_guides_guide_size = 1
 
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
-cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+" cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " Unimpaired configuration
 " Bubble single lines
@@ -165,14 +165,22 @@ set modelines=10
 
 " Default color scheme
 set t_Co=256
-let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
+" let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
 if has("gui_running")
   colorscheme sean_tm_twilight
   " colorscheme eddie
+
+  " MacVIM shift+arrow-keys behavior (required in .vimrc)
+  let macvim_hig_shift_movement = 1
+
 else
-  colorscheme sean_tm_twilight_console
-" colorscheme xoria256
+  let g:solarized_termcolors=256
+  set background=dark
+  colorscheme solarized
+  " colorscheme sean_tm_twilight_console
   " set clipboard=unnamed
+
+  " map <D-c> "+y
 endif
 
 
@@ -195,10 +203,10 @@ if has("autocmd")
   autocmd! bufwritepost .vimrc source  $MYVIMRC
   autocmd! bufwritepost sean_tm_twilight.vim source ~/.vim/colors/sean_tm_twilight.vim
 
-	" Stip trailing spaces from file
+	" Strip trailing spaces from file
 	"autocmd! bufwrite :%s/\s*$//g
   autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
-  
+
 endif
 
 " Use Node.js for JavaScript interpretation
@@ -210,26 +218,29 @@ map <leader>f y:tab Ack --literal '<C-R>=expand("<cword>")<CR>' app/
 vmap <leader>f y:tab Ack --literal '<C-R>0'<space> app/
 
 
+" Ruby stuff
 " Insert HashRockets... :)
 imap <C-l> <Space>=><Space>
 
-imap <C-.> <C-s><C-e>
-
 " Disable search match highlight
-nmap <silent> <esc><esc> :nohlsearch<cr>
+" nmap <silent> <esc><esc> :nohlsearch<cr>
 
-" Remap escape space to enter EX mode
-" map <esc><esc> :
-" imap <esc><esc> <esc>:
-map <space><esc> :
+
+" Clojure stuff
+let vimclojure#NailgunClient = "/usr/local/bin/ng"
+let vimclojure#WantNailgun = 1
+let g:vimclojure#HighlightBuiltins = 1
+let g:vimclojure#ParenRainbow = 1
 
 
 " Alignment
-map <Leader>l :Align<Space>
+map <Leader>l :Tabularize<space>
+" :AddTabularPattern json /:/r0c1l0
 
-set statusline+=set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P\ \ %{strftime(\"%H:%M\")}
+set statusline+=set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 setlocal spell spelllang=en_gb
+map z= ea<C-x>s
 
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=1
@@ -256,13 +267,13 @@ set undolevels=100 "maximum number of changes that can be undone
 set undoreload=100 "maximum number lines to save for undo on a buffer reload
 
 
-" map <C-t> :CommandT<CR>
 " let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript']
 
-let g:ctrlp_map = '<c-t>'
+" let g:ctrlp_map = '<c-t>'
 map <leader>b :CtrlPBuffer<cr>
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_working_path_mode = 2
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
 
 " map <c-t><c-v> :vert sfind<space>
 " map <c-t><c-s> :sfind<space>
@@ -287,14 +298,6 @@ function! TabMessage(cmd)
   set nomodified
 endfunction
 command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
-
-" Change the cursor on insert
-" Not needed with vitality!
-" let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-" let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-" MacVIM shift+arrow-keys behavior (required in .vimrc)
-let macvim_hig_shift_movement = 1
 
 
 " Qargs populates the args list with the files in the quickfix list...
