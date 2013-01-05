@@ -99,7 +99,7 @@ let Tlist_Show_One_File=1
 " CTags...
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 " Open tag
-" map <leader>o :exec("tag ".expand("<cword>"))<CR>
+ map <leader>o :exec("tag ".expand("<cword>"))<CR>
 " map <leader>o :tj<CR>
 
 " Remember last location in file
