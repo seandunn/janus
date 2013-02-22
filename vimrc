@@ -1,19 +1,5 @@
 set nocompatible
 
-" Colemak remapping...
-" Home row movement stuff
-" noremap n gj
-" noremap e gk
-" noremap k n
-" noremap K N
-" 
-" noremap j e
-" 
-" noremap i l
-" noremap l i
-" 
-
-
 noremap j gj
 noremap k gk
 
@@ -27,6 +13,7 @@ set number
 set ruler
 syntax enable
 set synmaxcol=200
+set scrolloff=1
 set lazyredraw
 
 " Load the matchit plugin
@@ -43,6 +30,9 @@ set virtualedit=block
 
 " Add symbols that count as part of Keywords...
 set iskeyword+=!,?,@
+
+" Code folding
+set nofoldenable
 
 " Searching
 set hlsearch
@@ -99,7 +89,7 @@ let Tlist_Show_One_File=1
 " CTags...
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 " Open tag
- map <leader>o :exec("tag ".expand("<cword>"))<CR>
+map <leader>o :exec("tag ".expand("<cword>"))<CR>zz
 " map <leader>o :tj<CR>
 
 " Remember last location in file
@@ -180,7 +170,7 @@ else
   " colorscheme sean_tm_twilight_console
   " set clipboard=unnamed
 
-  " map <D-c> "+y
+  map <c-y> "+y
 endif
 
 
@@ -274,12 +264,20 @@ map <leader>b :CtrlPBuffer<cr>
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
+let g:ctrlp_switch_buffer = 'Et'
 
-" map <c-t><c-v> :vert sfind<space>
-" map <c-t><c-s> :sfind<space>
-" map <c-t><c-t> :tabfind<space>
-" map <c-t><space> :find<space>
-" map <c-t> :find<space>
+" Delete buffers in Ctrlp buffer mode
+let g:ctrlp_buffer_func = { 'enter': 'MyCtrlPMappings' }
+
+func! MyCtrlPMappings()
+    nnoremap <buffer> <silent> <c-@> :call <sid>DeleteBuffer()<cr>
+endfunc
+
+func! s:DeleteBuffer()
+    exec "bd" fnamemodify(getline('.')[2:], ':p')
+    exec "norm \<F5>"
+endfunc
+
 
 " Move line highlighting with window focus
 autocmd WinEnter * set cursorline
