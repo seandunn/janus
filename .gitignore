@@ -17,3 +17,5 @@ indent
 .DS_Store
 syntax_checkers/**
 undodir/**
+*.cache
+
