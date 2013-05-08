@@ -17,20 +17,20 @@ hi CursorColumn  guifg=NONE guibg=#092137 gui=NONE
 hi LineNr  guifg=#3F3F3F guibg=#1b1b1b gui=italic,bold
 hi VertSplit  guifg=#393939 guibg=#1b1b1b gui=NONE
 hi MatchParen  guifg=#cda869 guibg=NONE gui=NONE
-hi StatusLine  guifg=#ffffff guibg=#92432E gui=italic cterm=italic term=italic
-hi StatusLineNC  guifg=#f8f8f8 guibg=#393939 gui=italic
-hi Pmenu  guifg=#9b703f guibg=#000000  gui=italic
+hi StatusLine  guifg=#ffffff guibg=#1b1b1b gui=italic,bold cterm=italic term=italic
+hi StatusLineNC  guifg=#f8f8f8 guibg=#1b1b1b gui=italic,bold
+hi Pmenu  guifg=#9b703f guibg=#151515  gui=italic
 hi PmenuSel  guifg=NONE guibg=#0051d4 gui=italic,bold
 hi IncSearch  guifg=#ffffff guibg=#b00000 gui=italic,bold
 hi Search  guifg=NONE guibg=#660D11 gui=italic,bold
 hi Directory  guifg=#cf6a4c guibg=NONE gui=NONE
 
-hi Folded  guifg=#504c51 guibg=#000000 gui=bold
-hi FoldColumn guifg=#828282 guibg=#000000
+hi Folded  guifg=#504c51 guibg=#151515 gui=bold
+hi FoldColumn guifg=#828282 guibg=#151515
 
 
 
-hi Normal  guifg=#f5f5f5 guibg=#151515 gui=NONE
+hi Normal  guifg=#e0e0e0 guibg=#202020 gui=NONE
 hi Boolean  guifg=#cf6a4c guibg=NONE gui=NONE
 hi Character  guifg=#cf6a4c guibg=NONE gui=NONE
 hi Comment  guifg=#696969 guibg=NONE gui=italic
