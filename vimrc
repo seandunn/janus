@@ -16,8 +16,8 @@ set synmaxcol=200
 set scrolloff=1
 set lazyredraw
 
-" Load the matchit plugin
-" runtime macros/matchit.vim
+" Reload changing files
+set autoread
 
 " Whitespace stuff
 set wrap
@@ -129,25 +129,6 @@ filetype plugin indent on
 " Use skinny indent guides
 let g:indent_guides_guide_size = 1
 
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-" map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Opens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>t
-" map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-" Inserts the path of the currently edited file into a command
-" Command mode: Ctrl+P
-" cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-
-" Unimpaired configuration
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
 
 " Use modeline overrides
 set modeline
@@ -155,7 +136,6 @@ set modelines=10
 
 " Default color scheme
 set t_Co=256
-" let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
 if has("gui_running")
   colorscheme sean_tm_twilight
   " colorscheme eddie
@@ -165,10 +145,10 @@ if has("gui_running")
 
 else
   let g:solarized_termcolors=256
-  set background=dark
   colorscheme solarized
-  " colorscheme sean_tm_twilight_console
-  " set clipboard=unnamed
+  set background=dark
+  let g:Powerline_colorscheme='solarized256'
+  set cursorline
 
   map <c-y> "+y
 endif
@@ -225,7 +205,6 @@ let g:vimclojure#ParenRainbow = 1
 
 " Alignment
 map <Leader>l :Tabularize<space>
-" :AddTabularPattern json /:/r0c1l0
 
 set statusline+=set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
