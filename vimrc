@@ -184,17 +184,6 @@ vmap <leader>f y:tab Ack --literal '<C-R>0'<space> app/
 " Insert HashRockets... :)
 imap <C-l> <Space>=><Space>
 
-" Disable search match highlight
-" nmap <silent> <esc><esc> :nohlsearch<cr>
-
-
-" Clojure stuff
-let vimclojure#NailgunClient = "/usr/local/bin/ng"
-let vimclojure#WantNailgun = 1
-let g:vimclojure#HighlightBuiltins = 1
-let g:vimclojure#ParenRainbow = 1
-
-
 " Alignment
 map <Leader>l :Tabularize<space>
 
@@ -208,18 +197,16 @@ let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
 
 " Gundo
-let g:gundo_width=120
-function! TabGundo()
-  tab split
-  GundoToggle
-endfunction
-
-command! -complete=command TabGundo call TabGundo()
-
-nnoremap <F5> :TabGundo<CR><c-w>=
-
-" snipmate trigger
-" let g:snips_trigger_key='<c-tab>'
+" let g:gundo_width=120
+" function! TabGundo()
+"   tab split
+"   GundoToggle
+" endfunction
+" 
+" command! -complete=command TabGundo call TabGundo()
+" 
+" nnoremap <F5> :TabGundo<CR><c-w>=
+" 
 
 " Persistent undo
 set undodir=~/.vim/undodir
