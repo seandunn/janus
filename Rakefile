@@ -135,7 +135,6 @@ vim_plugin_task "javascript-syntax", "http://github.com/jelera/vim-javascript-sy
 # vim_plugin_task "jslint",           "http://github.com/hallettj/jslint.vim.git"
 vim_plugin_task "LargeFiles",       "http://www.vim.org/scripts/download_script.php?src_id=9277"
 vim_plugin_task "markdown",         "http://github.com/tpope/vim-markdown.git"
-vim_plugin_task "nerdtree",         "http://github.com/wycats/nerdtree.git"
 vim_plugin_task "powerline",        "git@github.com:Lokaltog/vim-powerline.git"
 vim_plugin_task "powerline-solar",  "git://github.com/stephenmckinney/vim-solarized-powerline.git"
 vim_plugin_task "rails",            "http://github.com/tpope/vim-rails.git"

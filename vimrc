@@ -62,20 +62,18 @@ set switchbuf=useopen
 " dedicated digits for!
 let mapleader = " "
 
-" NERDTree configuration
-let NERDTreeStatusline=split(getcwd(), '/')[-1]
-let NERDTreeIgnore=['\.rbc$', '\~$']
-let NERDTreeMapOpenExpl="E"
-map <Leader>n :NERDTreeToggle<CR>
+" Netrw Config
+let g:netrw_liststyle=3
+let g:netrw_list_hide = ".git,.sass-cache,.jpg,.png,.svg"
+
+" Stop ballooneval turning on in plugins!
+let g:netrw_nobeval=1
 
 " Command-T configuration
 let g:CommandTMaxHeight=20
 set wildignore+=tmp/**
 " ZoomWin configuration
 map ± :ZoomWin<CR>
-
-" Stop ballooneval turning on in plugins!
-let g:netrw_nobeval=1
 
 " Taglist
 let Tlist_Use_Right_Window=1
