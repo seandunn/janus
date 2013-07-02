@@ -141,7 +141,8 @@ else
   let g:Powerline_colorscheme='solarized256'
   set cursorline
 
-  map <c-y> "+y
+  " Copy to the system clipboard
+  map <leader>c "+y
 endif
 
 
