@@ -76,13 +76,6 @@ set wildignore+=tmp/**
 map ± :ZoomWin<CR>
 
 " Taglist
-let Tlist_Use_Right_Window=1
-let Tlist_Use_SingleClick=1
-let Tlist_WinWidth=40
-let Tlist_Sort_Type = "name"
-let Tlist_Close_On_Select=1
-let Tlist_GainFocus_On_ToggleOpen=1
-let Tlist_Show_One_File=1
 
 " CTags...
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
