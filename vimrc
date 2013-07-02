@@ -300,12 +300,3 @@ endfunction
 command! -nargs=0 -complete=command BufCleaner call BufferDelete()
 map <esc><BS> :silent BufCleaner<cr>
 
-if exists("vimpager")
-
-  set nospell
-  if exists("vimpager_ptree") && vimpager_ptree[-2] == 'wman'
-    set ft=man
-    set scrolloff=999
-  endif
-endif
-
