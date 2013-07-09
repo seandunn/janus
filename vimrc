@@ -288,3 +288,6 @@ endfunction
 command! -nargs=0 -complete=command BufCleaner call BufferDelete()
 map <esc><BS> :silent BufCleaner<cr>
 
+au BufRead,BufNewFile *.pde set filetype=arduino
+au BufRead,BufNewFile *.ino set filetype=arduino
+
