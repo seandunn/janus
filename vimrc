@@ -137,8 +137,9 @@ if has("gui_running")
 else
   let g:solarized_termcolors=256
   colorscheme solarized
+  " colorscheme Tomorrow-Night
   set background=dark
-  let g:Powerline_colorscheme='solarized256'
+  " let g:Powerline_colorscheme='solarized256'
   set cursorline
 
   " Copy to the system clipboard
@@ -149,7 +150,7 @@ endif
 " Open .vimrc in a new tab
 nmap <leader>,v :tabedit $MYVIMRC<CR>
 nmap <leader>,g :tabedit $MYGVIMRC<CR>
-nmap <leader>,c :tabedit ~/.vim/colors/sean_tm_twilight.vim<CR>
+nmap <leader>,c :tabedit ~/.vim/colors/solarized.vim<CR>
 
 "Directories for swp files
 set backupdir=~/.vim/backup
@@ -164,6 +165,7 @@ if has("autocmd")
 	" Source the vimrc file after saving it
   autocmd! bufwritepost .vimrc source  $MYVIMRC
   autocmd! bufwritepost sean_tm_twilight.vim source ~/.vim/colors/sean_tm_twilight.vim
+  autocmd! bufwritepost sean_tm_twilight.vim source ~/.vim/colors/solarized.vim
 
 	" Strip trailing spaces from file
 	"autocmd! bufwrite :%s/\s*$//g
