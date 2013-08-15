@@ -65,6 +65,8 @@ let mapleader = " "
 " Netrw Config
 let g:netrw_liststyle=3
 let g:netrw_list_hide = ".git,.sass-cache,.jpg,.png,.svg"
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
 
 " Stop ballooneval turning on in plugins!
 let g:netrw_nobeval=1
