@@ -10,6 +10,7 @@ set mousehide
 " no beeping!
 set vb t_vb=
 set number
+set relativenumber
 set ruler
 syntax enable
 set synmaxcol=200
@@ -66,7 +67,6 @@ let mapleader = " "
 let g:netrw_liststyle=3
 let g:netrw_list_hide = ".git,.sass-cache,.jpg,.png,.svg"
 let g:netrw_browse_split = 4
-let g:netrw_altv = 1
 
 " Stop ballooneval turning on in plugins!
 let g:netrw_nobeval=1
@@ -75,7 +75,7 @@ let g:netrw_nobeval=1
 let g:CommandTMaxHeight=20
 set wildignore+=tmp/**
 " ZoomWin configuration
-map ± :ZoomWin<CR>
+map § :ZoomWin<CR>
 
 " Taglist
 
@@ -113,6 +113,16 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
 
 au BufRead,BufNewFile *.txt call s:setupWrapping()
 
+" jshint javascript files on save
+" au BufWritePost *.js :JSHint
+
+" Tern settings
+map <Leader>* * :TernDefSplit<CR>zt
+map <Leader>8 * :TernDefSplit<CR>zt
+
+" wrap comments but not code
+autocmd FileType javascript setlocal textwidth=80 formatoptions=croq
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -139,9 +149,12 @@ if has("gui_running")
 else
   let g:solarized_termcolors=256
   colorscheme solarized
-  " colorscheme Tomorrow-Night
   set background=dark
+  " colorscheme Tomorrow-Night
   " let g:Powerline_colorscheme='solarized256'
+  let g:airline_powerline_fonts=1
+  let g:airline_theme='solarized'
+
   set cursorline
 
   " Copy to the system clipboard
@@ -194,11 +207,13 @@ map <Leader>l :Tabularize<space>
 set statusline+=set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 setlocal spell spelllang=en_gb
+set spell
 map z= ea<C-x>s
 
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
+let g:syntastic_javascript_checkers = ['jshint']
 
 " Gundo
 " let g:gundo_width=120
@@ -292,3 +307,8 @@ endfunction
 command! -nargs=0 -complete=command BufCleaner call BufferDelete()
 map <esc><BS> :silent BufCleaner<cr>
 
+
+
+" Regexps...
+" Change '<word>' to "<word>"
+map <leader>' :%s/\v'([^ ]*)'/"\1"/gc<cr>
