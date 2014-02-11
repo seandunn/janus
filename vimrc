@@ -307,8 +307,9 @@ endfunction
 command! -nargs=0 -complete=command BufCleaner call BufferDelete()
 map <esc><BS> :silent BufCleaner<cr>
 
-
-
 " Regexps...
 " Change '<word>' to "<word>"
 map <leader>' :%s/\v'([^ ]*)'/"\1"/gc<cr>
+au BufRead,BufNewFile *.pde set filetype=arduino
+au BufRead,BufNewFile *.ino set filetype=arduino
+
