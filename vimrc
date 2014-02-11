@@ -2,6 +2,8 @@ set nocompatible
 
 noremap j gj
 noremap k gk
+map <C-e> :
+imap <C-e> <esc>:
 
 set mouse=a
 set selectmode=
@@ -10,7 +12,6 @@ set mousehide
 " no beeping!
 set vb t_vb=
 set number
-set relativenumber
 set ruler
 syntax enable
 set synmaxcol=200
@@ -159,6 +160,8 @@ else
 
   " Copy to the system clipboard
   map <leader>c "+y
+  " Paste...
+  map <leader>v "+p
 endif
 
 
@@ -310,6 +313,10 @@ map <esc><BS> :silent BufCleaner<cr>
 " Regexps...
 " Change '<word>' to "<word>"
 map <leader>' :%s/\v'([^ ]*)'/"\1"/gc<cr>
+
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
 
+" Macros...
+" Format SQL
+let @s=':%s/where/where/g :%s/from/from/g :%s/inner/inner/g :%s/and/and/g :%s/order/order/g :%s/\s*$//g :set syntax=sql'
