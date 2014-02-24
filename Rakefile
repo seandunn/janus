@@ -121,8 +121,6 @@ def vim_plugin_task(name, repo=nil)
 end
 
 vim_plugin_task "AnsiEsc",          "http://github.com/vim-scripts/AnsiEsc.vim.git"
-vim_plugin_task "vim-arduino",      "https://github.com/tclem/vim-arduino.git"
-vim_plugin_task "arduino",          "http://www.vim.org/scripts/download_script.php?src_id=17108"
 vim_plugin_task "abolish.vim",      "http://github.com/tpope/vim-abolish.git"
 vim_plugin_task "ack.vim",          "http://github.com/mileszs/ack.vim.git"
 vim_plugin_task "Tabular",          "http://github.com/godlygeek/tabular.git"

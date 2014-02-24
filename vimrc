@@ -1,5 +1,7 @@
 set nocompatible
 
+set shell=bash\ -i
+
 noremap j gj
 noremap k gk
 map <C-e> :
@@ -243,7 +245,8 @@ set undoreload=100 "maximum number lines to save for undo on a buffer reload
 map <leader>b :CtrlPBuffer<cr>
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_working_path_mode = 2
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
 let g:ctrlp_switch_buffer = 'Et'
 
 " Delete buffers in Ctrlp buffer mode
