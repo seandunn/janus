@@ -132,16 +132,11 @@ set backspace=indent,eol,start
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
 
-" Use skinny indent guides
-let g:indent_guides_guide_size = 1
-
-
 " Use modeline overrides
 set modeline
 set modelines=10
 
 " Default color scheme
-set t_Co=256
 if has("gui_running")
   colorscheme sean_tm_twilight
   " colorscheme eddie
@@ -150,10 +145,11 @@ if has("gui_running")
   let macvim_hig_shift_movement = 1
 
 else
-  let g:solarized_termcolors=256
-  colorscheme solarized
+  set t_Co=256
   set background=dark
-  " colorscheme Tomorrow-Night
+ " let g:solarized_termtrans = 1
+  let g:solarized_italic=1
+  colorscheme solarized
   " let g:Powerline_colorscheme='solarized256'
   let g:airline_powerline_fonts=1
   let g:airline_theme='solarized'
@@ -175,11 +171,6 @@ nmap <leader>,c :tabedit ~/.vim/colors/solarized.vim<CR>
 "Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
-
-" Include user's local vim config
-" if filereadable(expand("~/.vimrc.local"))
-"   source ~/.vimrc.local
-" endif
 
 if has("autocmd")
 	" Source the vimrc file after saving it
@@ -219,6 +210,14 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_javascript_checkers = ['jshint']
+
+" go ahead and check files when we open them
+let g:syntastic_check_on_open=1
+
+" use fancy symbols for errors and warnings
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+
 
 " Gundo
 " let g:gundo_width=120
@@ -294,6 +293,12 @@ endfunction
 
 function! BufferDelete()
     if &modified
+        echohl ErrorMsg
+        echomsg "No write since last change. Not closing buffer."
+        echohl NONE
+    else
+        let s:total_nr_buffers = len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+
         echohl ErrorMsg
         echomsg "No write since last change. Not closing buffer."
         echohl NONE
