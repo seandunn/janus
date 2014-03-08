@@ -5,6 +5,8 @@ set shell=bash\ -i
 noremap j gj
 noremap k gk
 map <C-e> :
+" map <C-e><C-e> :
+" imap <C-e> <esc>
 imap <C-e> <esc>:
 
 set mouse=a
@@ -24,7 +26,7 @@ set lazyredraw
 set autoread
 
 " Whitespace stuff
-set wrap
+" set wrap
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -125,6 +127,7 @@ map <Leader>8 * :TernDefSplit<CR>zt
 
 " wrap comments but not code
 autocmd FileType javascript setlocal textwidth=80 formatoptions=croq
+autocmd BufNewFile,BufRead *.json setf javascript
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -154,7 +157,7 @@ else
   let g:airline_powerline_fonts=1
   let g:airline_theme='solarized'
 
-  set cursorline
+  " set cursorline
 
   " Copy to the system clipboard
   map <leader>c "+y
@@ -262,8 +265,8 @@ endfunc
 
 
 " Move line highlighting with window focus
-autocmd WinEnter * set cursorline
-autocmd WinLeave * set nocursorline
+" autocmd WinEnter * set cursorline
+" autocmd WinLeave * set nocursorline
 
 " Show (partial) command in the status line
 set showcmd
