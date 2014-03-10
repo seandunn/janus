@@ -192,6 +192,7 @@ let $JS_CMD='node'
 
 
 " Ack shortcut...
+let g:ackprg = 'ag --nogroup --nocolor --column'
 map <leader>f y:tab Ack --literal '<C-R>=expand("<cword>")<CR>' app/
 vmap <leader>f y:tab Ack --literal '<C-R>0'<space> app/
 

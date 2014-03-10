@@ -136,8 +136,8 @@
 
 " Terminals that support italics
 let s:terms_italic=[
-            \"rxvt",
             \"iTerm.app",
+            \"rxvt",
             \"gnome-terminal"
             \]
 " For reference only, terminals are known to be incomptible.
@@ -148,7 +148,7 @@ let s:terms_noitalic=[
 if has("gui_running")
     let s:terminal_italic=1 " TODO: could refactor to not require this at all
 else
-    let s:terminal_italic=1 " terminals will be guilty until proven compatible
+    let s:terminal_italic=0 " terminals will be guilty until proven compatible
     for term in s:terms_italic
         if $TERM_PROGRAM =~ term
             let s:terminal_italic=1
@@ -425,10 +425,10 @@ else
     let s:u           = ",underline"
 endif
 
-if g:solarized_italic == 1 || s:terminal_italic == 1
-    let s:i           = ",italic"
-else
+if g:solarized_italic == 0 || s:terminal_italic == 0
     let s:i           = ""
+else
+    let s:i           = ",italic"
 endif
 "}}}
 " Highlighting primitives"{{{
@@ -474,7 +474,7 @@ exe "let s:fg_cyan      = ' ".s:vmode."fg=".s:cyan   ."'"
 
 exe "let s:fmt_none     = ' ".s:vmode."=NONE".          " term=NONE".    "'"
 exe "let s:fmt_bold     = ' ".s:vmode."=NONE".s:b.      " term=NONE".s:b."'"
-exe "let s:fmt_bldi     = ' ".s:vmode."=NONE".s:b.s:i.  " term=NONE".s:b.s:i."'"
+exe "let s:fmt_bldi     = ' ".s:vmode."=NONE".s:b.      " term=NONE".s:b."'"
 exe "let s:fmt_undr     = ' ".s:vmode."=NONE".s:u.      " term=NONE".s:u."'"
 exe "let s:fmt_undb     = ' ".s:vmode."=NONE".s:u.s:b.  " term=NONE".s:u.s:b."'"
 exe "let s:fmt_undi     = ' ".s:vmode."=NONE".s:u.      " term=NONE".s:u."'"
@@ -614,11 +614,11 @@ exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base00 .s:bg_base02 .s:fmt_revbb
 exe "hi! Visual"         .s:fmt_none   .s:fg_base01 .s:bg_base03 .s:fmt_revbb
 exe "hi! Directory"      .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ErrorMsg"       .s:fmt_revr   .s:fg_red    .s:bg_none
-exe "hi! IncSearch"      .s:fmt_ital   .s:fg_orange .s:bg_none
-exe "hi! Search"         .s:fmt_revb  .s:fg_yellow .s:bg_none
+exe "hi! IncSearch"      .s:fmt_stnd   .s:fg_orange .s:bg_none
+exe "hi! Search"         .s:fmt_revr   .s:fg_yellow .s:bg_none
 exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
-exe "hi! LineNr"         .s:fmt_ital   .s:fg_base01 .s:bg_base02
+exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_base02
 exe "hi! Question"       .s:fmt_bold   .s:fg_cyan   .s:bg_none
 if ( has("gui_running") || &t_Co > 8 )
     exe "hi! VertSplit"  .s:fmt_none   .s:fg_base00 .s:bg_base00
