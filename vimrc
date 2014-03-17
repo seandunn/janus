@@ -244,12 +244,21 @@ set undoreload=100 "maximum number lines to save for undo on a buffer reload
 
 " let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript']
 
-" let g:ctrlp_map = '<c-t>'
 map <leader>b :CtrlPBuffer<cr>
 let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_working_path_mode = 2
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-" let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
 let g:ctrlp_switch_buffer = 'Et'
 
 " Delete buffers in Ctrlp buffer mode
