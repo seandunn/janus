@@ -17,6 +17,10 @@ set mousehide
 set vb t_vb=
 set number
 set ruler
+
+" Use old regex engine due to syntax lag in ruby...
+set re=1
+
 syntax enable
 set synmaxcol=200
 set scrolloff=1
@@ -26,7 +30,7 @@ set lazyredraw
 set autoread
 
 " Whitespace stuff
-" set wrap
+set wrap
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -49,6 +53,7 @@ set smartcase
 " Tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.scssc
 
 set wildchar=<Tab> wildmenu wildmode=full
 
@@ -69,20 +74,18 @@ set switchbuf=useopen
 let mapleader = " "
 
 " Netrw Config
+let g:netrw_preview=1
 let g:netrw_liststyle=3
+let g:netrw_altv = 0
+let g:netrw_winsize=100
 let g:netrw_list_hide = ".git,.sass-cache,.jpg,.png,.svg"
-let g:netrw_browse_split = 4
+let g:netrw_banner=0
 
 " Stop ballooneval turning on in plugins!
 let g:netrw_nobeval=1
 
-" Command-T configuration
-let g:CommandTMaxHeight=20
-set wildignore+=tmp/**
 " ZoomWin configuration
 map § :ZoomWin<CR>
-
-" Taglist
 
 " CTags...
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
@@ -150,12 +153,13 @@ if has("gui_running")
 else
   set t_Co=256
   set background=dark
- " let g:solarized_termtrans = 1
+ let g:solarized_termtrans = 1
   let g:solarized_italic=1
   colorscheme solarized
+  " colorscheme sean_tm_twilight_console
   " let g:Powerline_colorscheme='solarized256'
   let g:airline_powerline_fonts=1
-  let g:airline_theme='solarized'
+  " let g:airline_theme='solarized'
 
   " set cursorline
 
@@ -170,6 +174,7 @@ endif
 nmap <leader>,v :tabedit $MYVIMRC<CR>
 nmap <leader>,g :tabedit $MYGVIMRC<CR>
 nmap <leader>,c :tabedit ~/.vim/colors/solarized.vim<CR>
+" nmap <leader>,c :tabedit ~/.vim/colors/sean_tm_twilight_console.vim<CR>
 
 "Directories for swp files
 set backupdir=~/.vim/backup
@@ -178,7 +183,7 @@ set directory=~/.vim/backup
 if has("autocmd")
 	" Source the vimrc file after saving it
   autocmd! bufwritepost .vimrc source  $MYVIMRC
-  autocmd! bufwritepost sean_tm_twilight.vim source ~/.vim/colors/sean_tm_twilight.vim
+  " autocmd! bufwritepost sean_tm_twilight.vim source ~/.vim/colors/sean_tm_twilight.vim
   autocmd! bufwritepost sean_tm_twilight.vim source ~/.vim/colors/solarized.vim
 
 	" Strip trailing spaces from file
@@ -191,12 +196,6 @@ endif
 let $JS_CMD='node'
 
 
-" Ack shortcut...
-let g:ackprg = 'ag --nogroup --nocolor --column'
-map <leader>f y:tab Ack --literal '<C-R>=expand("<cword>")<CR>' app/
-vmap <leader>f y:tab Ack --literal '<C-R>0'<space> app/
-
-
 " Ruby stuff
 " Insert HashRockets... :)
 imap <C-l> <Space>=><Space>
@@ -206,21 +205,22 @@ map <Leader>l :Tabularize<space>
 
 set statusline+=set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" Spelling stuff...
 setlocal spell spelllang=en_gb
 set spell
 map z= ea<C-x>s
 
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_jump=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_javascript_checkers = ['jshint']
-
-" go ahead and check files when we open them
-let g:syntastic_check_on_open=1
-
-" use fancy symbols for errors and warnings
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
+" let g:syntastic_enable_signs=1
+" let g:syntastic_auto_jump=1
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_javascript_checkers = ['jshint']
+"
+" " go ahead and check files when we open them
+" let g:syntastic_check_on_open=1
+"
+" " use fancy symbols for errors and warnings
+" let g:syntastic_error_symbol='✗'
+" let g:syntastic_warning_symbol='⚠'
 
 
 " Gundo
@@ -242,24 +242,36 @@ set undolevels=100 "maximum number of changes that can be undone
 set undoreload=100 "maximum number lines to save for undo on a buffer reload
 
 
-" let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript']
+
+" The Silver Searcher
+" Ag shortcut...
+map <leader>f y:Ag --literal '<C-R>=expand("<cword>")<CR>' 
+vmap <leader>f y:Ag --literal '<C-R>0'<space> 
 
 map <leader>b :CtrlPBuffer<cr>
 let g:ctrlp_match_window_reversed = 0
 
-" The Silver Searcher
+" let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript']
+
+" ctrl p
+let g:ctrlp_root_markers = ['Capfile']
+" let g:ctrlp_max_files = 0
+
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
+  " let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
 
   " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+  " let g:ctrlp_use_caching = 0
 endif
 
-let g:ctrlp_switch_buffer = 'Et'
+nnoremap <silent> <C-W>z :wincmd z<Bar>cclose<Bar>lclose<CR>
+
+" let g:ctrlp_switch_buffer = 'Et'
+let g:ctrlp_custom_ignore = '\v\.(jpeg|jpg|JPG|png)$'
 
 " Delete buffers in Ctrlp buffer mode
 let g:ctrlp_buffer_func = { 'enter': 'MyCtrlPMappings' }
