@@ -19,7 +19,7 @@ set number
 set ruler
 
 " Use old regex engine due to syntax lag in ruby...
-set re=1
+" set re=1
 
 syntax enable
 set synmaxcol=200
@@ -77,7 +77,6 @@ let mapleader = " "
 let g:netrw_preview=1
 let g:netrw_liststyle=3
 let g:netrw_altv = 0
-let g:netrw_winsize=100
 let g:netrw_list_hide = ".git,.sass-cache,.jpg,.png,.svg"
 let g:netrw_banner=0
 
@@ -155,11 +154,13 @@ else
   set background=dark
  let g:solarized_termtrans = 1
   let g:solarized_italic=1
-  colorscheme solarized
-  " colorscheme sean_tm_twilight_console
-  " let g:Powerline_colorscheme='solarized256'
-  let g:airline_powerline_fonts=1
-  " let g:airline_theme='solarized'
+  " colorscheme solarized
+
+  " let g:molokai_original = 1
+  let g:rehash256 = 1
+  colorscheme molokai
+  " let g:airline_powerline_fonts=1
+  let g:airline_theme='molokai'
 
   " set cursorline
 
@@ -168,6 +169,21 @@ else
   " Paste...
   map <leader>v "+p
 endif
+
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+
+" old vim-powerline symbols
+let g:airline_left_sep = ' '
+let g:airline_left_alt_sep = '│'
+let g:airline_right_sep = ' '
+let g:airline_right_alt_sep = '│'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = 'ro'
+let g:airline_symbols.linenr = '⭡'
 
 
 " Open .vimrc in a new tab
@@ -181,13 +197,13 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
 if has("autocmd")
-	" Source the vimrc file after saving it
+  " Source the vimrc file after saving it
   autocmd! bufwritepost .vimrc source  $MYVIMRC
   " autocmd! bufwritepost sean_tm_twilight.vim source ~/.vim/colors/sean_tm_twilight.vim
   autocmd! bufwritepost sean_tm_twilight.vim source ~/.vim/colors/solarized.vim
 
-	" Strip trailing spaces from file
-	"autocmd! bufwrite :%s/\s*$//g
+  " Strip trailing spaces from file
+  "autocmd! bufwrite :%s/\s*$//g
   autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 endif
@@ -203,7 +219,7 @@ imap <C-l> <Space>=><Space>
 " Alignment
 map <Leader>l :Tabularize<space>
 
-set statusline+=set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+" set statusline+=set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Spelling stuff...
 setlocal spell spelllang=en_gb
@@ -277,12 +293,12 @@ let g:ctrlp_custom_ignore = '\v\.(jpeg|jpg|JPG|png)$'
 let g:ctrlp_buffer_func = { 'enter': 'MyCtrlPMappings' }
 
 func! MyCtrlPMappings()
-    nnoremap <buffer> <silent> <c-@> :call <sid>DeleteBuffer()<cr>
+nnoremap <buffer> <silent> <c-@> :call <sid>DeleteBuffer()<cr>
 endfunc
 
 func! s:DeleteBuffer()
-    exec "bd" fnamemodify(getline('.')[2:], ':p')
-    exec "norm \<F5>"
+exec "bd" fnamemodify(getline('.')[2:], ':p')
+exec "norm \<F5>"
 endfunc
 
 
@@ -295,12 +311,12 @@ set showcmd
 
 " Pipes the output of Ex to a buffer in a new tab...
 function! TabMessage(cmd)
-  redir => message
-  silent execute a:cmd
-  redir END
-  tabnew
-  silent put=message
-  set nomodified
+redir => message
+silent execute a:cmd
+redir END
+tabnew
+silent put=message
+set nomodified
 endfunction
 command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
 
@@ -308,37 +324,37 @@ command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
 " Qargs populates the args list with the files in the quickfix list...
 command! -nargs=0 -bar Qargs execute 'args ' . QuickfixFilenames()
 function! QuickfixFilenames()
-  " Building a hash ensures we get each buffer only once
-  let buffer_numbers = {}
-  for quickfix_item in getqflist()
-    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
-  endfor
-  return join(values(buffer_numbers))
+" Building a hash ensures we get each buffer only once
+let buffer_numbers = {}
+for quickfix_item in getqflist()
+  let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+endfor
+return join(values(buffer_numbers))
 endfunction
 
 function! BufferDelete()
-    if &modified
-        echohl ErrorMsg
-        echomsg "No write since last change. Not closing buffer."
-        echohl NONE
-    else
-        let s:total_nr_buffers = len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+if &modified
+  echohl ErrorMsg
+  echomsg "No write since last change. Not closing buffer."
+  echohl NONE
+else
+  let s:total_nr_buffers = len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
 
-        echohl ErrorMsg
-        echomsg "No write since last change. Not closing buffer."
-        echohl NONE
-    else
-        let s:total_nr_buffers = len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+  echohl ErrorMsg
+  echomsg "No write since last change. Not closing buffer."
+  echohl NONE
+else
+  let s:total_nr_buffers = len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
 
-        if s:total_nr_buffers == 1
-            bdelete
-            echo "Buffer deleted. Created new buffer."
-        else
-            bprevious
-            bdelete #
-            echo "Buffer deleted."
-        endif
-    endif
+  if s:total_nr_buffers == 1
+    bdelete
+    echo "Buffer deleted. Created new buffer."
+  else
+    bprevious
+    bdelete #
+    echo "Buffer deleted."
+  endif
+endif
 endfunction
 command! -nargs=0 -complete=command BufCleaner call BufferDelete()
 map <esc><BS> :silent BufCleaner<cr>
@@ -349,6 +365,7 @@ map <leader>' :%s/\v'([^ ]*)'/"\1"/gc<cr>
 
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
+au BufNewFile,BufRead *.ldg,*.ledger setf ledger
 
 " Macros...
 " Format SQL
