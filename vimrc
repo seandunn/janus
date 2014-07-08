@@ -73,6 +73,13 @@ set switchbuf=useopen
 " dedicated digits for!
 let mapleader = " "
 
+" NERDTree configuration
+let NERDTreeStatusline=split(getcwd(), '/')[-1]
+let NERDTreeIgnore=['\.rbc$', '\~$']
+let NERDTreeMapOpenExpl="E"
+map <Leader>n :NERDTreeToggle<CR>
+
+
 " Netrw Config
 let g:netrw_preview=1
 let g:netrw_liststyle=3
@@ -95,17 +102,17 @@ map <leader>o :exec("tag ".expand("<cword>"))<CR>zz
 " Remember last location in file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
+        \| exe "normal g'\"" | endif
 endif
 
 function! s:setupWrapping()
-  set wm=2
-  set textwidth=72
+set wm=2
+set textwidth=72
 endfunction
 
 function! s:setupMarkup()
-  call s:setupWrapping()
-  map <buffer> <Leader>p :Mm <CR>
+call s:setupWrapping()
+map <buffer> <Leader>p :Mm <CR>
 endfunction
 
 " make and python use real tabs
@@ -149,10 +156,16 @@ if has("gui_running")
   " MacVIM shift+arrow-keys behavior (required in .vimrc)
   let macvim_hig_shift_movement = 1
 
+  set cursorline
+  " Move line highlighting with window focus
+  autocmd WinEnter * set cursorline
+  autocmd WinLeave * set nocursorline
+  set relativenumber
+
 else
   set t_Co=256
   set background=dark
- let g:solarized_termtrans = 1
+  let g:solarized_termtrans = 1
   let g:solarized_italic=1
   " colorscheme solarized
 
@@ -162,7 +175,6 @@ else
   " let g:airline_powerline_fonts=1
   let g:airline_theme='molokai'
 
-  " set cursorline
 
   " Copy to the system clipboard
   map <leader>c "+y
@@ -245,11 +257,11 @@ map z= ea<C-x>s
 "   tab split
 "   GundoToggle
 " endfunction
-" 
+"
 " command! -complete=command TabGundo call TabGundo()
-" 
+"
 " nnoremap <F5> :TabGundo<CR><c-w>=
-" 
+"
 
 " Persistent undo
 set undodir=~/.vim/undodir
@@ -261,8 +273,8 @@ set undoreload=100 "maximum number lines to save for undo on a buffer reload
 
 " The Silver Searcher
 " Ag shortcut...
-map <leader>f y:Ag --literal '<C-R>=expand("<cword>")<CR>' 
-vmap <leader>f y:Ag --literal '<C-R>0'<space> 
+map <leader>f y:Ag --literal '<C-R>=expand("<cword>")<CR>'
+vmap <leader>f y:Ag --literal '<C-R>0'<space>
 
 map <leader>b :CtrlPBuffer<cr>
 let g:ctrlp_match_window_reversed = 0
@@ -301,10 +313,6 @@ exec "bd" fnamemodify(getline('.')[2:], ':p')
 exec "norm \<F5>"
 endfunc
 
-
-" Move line highlighting with window focus
-" autocmd WinEnter * set cursorline
-" autocmd WinLeave * set nocursorline
 
 " Show (partial) command in the status line
 set showcmd
@@ -370,3 +378,43 @@ au BufNewFile,BufRead *.ldg,*.ledger setf ledger
 " Macros...
 " Format SQL
 let @s=':%s/where/where/g :%s/from/from/g :%s/inner/inner/g :%s/and/and/g :%s/order/order/g :%s/\s*$//g :set syntax=sql'
+" Update hash format
+map <leader>h :%s/:\(\w*\) =>/\1:/gc<CR>
+
+
+let g:ctrlp_prompt_mappings = {
+      \ 'PrtBS()':              ['<c-h>', '<bs>', '<c-]>'],
+      \ 'PrtDelete()':          ['<del>'],
+      \ 'PrtDeleteWord()':      ['<c-w>'],
+      \ 'PrtClear()':           ['<c-u>'],
+      \ 'PrtSelectMove("j")':   ['<c-j>', '<down>'],
+      \ 'PrtSelectMove("k")':   ['<c-k>', '<up>'],
+      \ 'PrtSelectMove("t")':   ['<Home>', '<kHome>'],
+      \ 'PrtSelectMove("b")':   ['<End>', '<kEnd>'],
+      \ 'PrtSelectMove("u")':   ['<PageUp>', '<kPageUp>'],
+      \ 'PrtSelectMove("d")':   ['<PageDown>', '<kPageDown>'],
+      \ 'PrtHistory(-1)':       ['<c-n>'],
+      \ 'PrtHistory(1)':        ['<c-p>'],
+      \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
+      \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>'],
+      \ 'AcceptSelection("t")': ['<c-t>'],
+      \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
+      \ 'ToggleFocus()':        ['<s-tab>'],
+      \ 'ToggleRegex()':        ['<c-r>'],
+      \ 'ToggleByFname()':      ['<c-d>'],
+      \ 'ToggleType(1)':        ['<c-f>', '<c-up>'],
+      \ 'ToggleType(-1)':       ['<c-b>', '<c-down>'],
+      \ 'PrtExpandDir()':       ['<tab>'],
+      \ 'PrtInsert("c")':       ['<MiddleMouse>', '<insert>'],
+      \ 'PrtInsert()':          ['<c-\>'],
+      \ 'PrtCurStart()':        ['<c-a>'],
+      \ 'PrtCurEnd()':          ['<c-e>'],
+      \ 'PrtCurLeft()':         [ '<left>', '<c-^>'],
+      \ 'PrtCurRight()':        ['<c-l>', '<right>'],
+      \ 'PrtClearCache()':      ['<F5>'],
+      \ 'PrtDeleteEnt()':       ['<F7>'],
+      \ 'CreateNewFile()':      ['<c-y>'],
+      \ 'MarkToOpen()':         ['<c-z>'],
+      \ 'OpenMulti()':          ['<c-o>'],
+      \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
+      \ }

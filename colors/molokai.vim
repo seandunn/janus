@@ -170,7 +170,7 @@ if &t_Co > 255
    hi Function        ctermfg=118
    hi Identifier      ctermfg=208               cterm=none
    hi Ignore          ctermfg=244 ctermbg=none
-   hi IncSearch       ctermfg=193 ctermbg=16
+   hi IncSearch       ctermfg=193 ctermbg=16, cterm=italic
 
    hi keyword         ctermfg=161               cterm=bold
    hi Label           ctermfg=229               cterm=none
@@ -266,7 +266,7 @@ if &t_Co > 255
 
        hi Comment         ctermfg=244 cterm=italic
        hi LineNr          ctermfg=239 ctermbg=235
-       hi NonText         ctermfg=239
+       hi NonText         ctermfg=235 ctermbg=235
        hi SpecialKey      ctermfg=239
        hi TabLineFill     ctermfg=234 ctermbg=234 cterm=bold
        hi TabLine         ctermfg=12 ctermbg=234 cterm=none
